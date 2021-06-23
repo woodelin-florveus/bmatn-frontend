@@ -15,7 +15,7 @@ function Signup(){
             />
 
             <label> Profile Image </label>
-
+                <img src="https://cdn.iconscout.com/icon/free/png-512/account-profile-avatar-man-circle-round-user-30452.png" alt= "profile_image" />
             {/* add image  */}
 
             <label> Bio</label>

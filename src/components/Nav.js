@@ -1,50 +1,42 @@
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
-function Nav(){
+function Nav({ currentUser}){
 
 
 
 
     return (
         <nav>
-            <NavLink exact to="/home">
+            <Link to="/">
                 Home
-            </NavLink>
+            </Link>
             
-            <NavLink exact to="/trainers">
-                Trainers
-            </NavLink>
+            {currentUser ? (
+                <>
+                <Link to="/trainers"> Trainers </Link>
 
-            <NavLink exact to="/services">
-                Services
-            </NavLink>
+                <Link to="/services"> Services </Link>
+    
+                <Link to="/appointments"> Appointments </Link>
+    
+                <Link to="/about"> About </Link>    
 
-            <NavLink exact to="/appointments">
-                Appointments
-            </NavLink>
+                <Link to="/profile"> Profile </Link>
 
-            <NavLink exact to="/about">
-                About
-            </NavLink>
+                <Link to="/logout">Logout </Link>
+                </>
+            ) : (
 
-            <NavLink exact to="/login">
-                Login
-            </NavLink>
+            <>
 
-            <NavLink exact to="/signup">
-                Signup
-            </NavLink>
+            <Link to="/login"> Login </Link>
 
-            <NavLink exact to="/profile">
-                Profile
-            </NavLink>
+            <Link to="/signup"> Signup </Link>
 
-            <NavLink exact to="/">
-                Logout
-            </NavLink>
-
+            </>
+            )}
         </nav>
     )
 
