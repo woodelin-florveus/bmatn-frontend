@@ -1,8 +1,16 @@
 import { useState } from "react"
 
-function Signup(){
+import { useHistory } from "react-router-dom"
 
-    const [formData, setFormData] = useState({name: "", email: "", profile_image: ""})
+function Signup({ setCurrentUser }){
+
+    const [formData, setFormData] = useState({name: "", email: "", profile_image: "", password: ""})
+
+    // keep track of errors 
+
+    const [errors, setErrors] = useState([])
+
+    const history = useHistory()
 
     function handleChange(event){
         setFormData({...formData, 
@@ -12,9 +20,30 @@ function Signup(){
 
     function handleSubmit(event){
         event.preventDefault();
+
+        fetch("http://localhost:3000/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(user => {
+            // save the user in state if successful
+                // or show errors if not successful
+                if(user.errors){
+                    setErrors(user.errors)
+                } else {
+                    setCurrentUser(user)
+                    history.push("/")
+                }
+        })
+
+
     }
 
-    const {name, email, profile_image} = formData
+    const {name, email, profile_image, password} = formData
 
     return(
         <form onSubmit={handleSubmit} autoComplete='off'>
@@ -54,12 +83,14 @@ function Signup(){
                 type="password"
                 name="password"
                 autoComplete='current-password'
+                value={password}
+                onChange={handleChange}
             />
 
             <input type="submit" value="signup" />
 
-            {/* handle errors */}
-        
+           {errors.map(error => <p key={error} style={{color:"red"}}>{error}</p>)} 
+
         </form>
     )
 

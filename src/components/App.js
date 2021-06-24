@@ -45,6 +45,7 @@ function App() {
 
       <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
       {/* {currentUser ? <h1>Welcome, {currentUser.name}</h1> : <h1>Please Login or sign up</h1>}   */}
+      <img src="https://dummyimage.com/1200x400/a8a7b2/ffffff.jpg" alt="dummyImage" />
       <Switch>
           <Route path="/home">
             <Homepage />
@@ -53,7 +54,7 @@ function App() {
             {currentUser && <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           </Route>
           <Route path="/Signup">
-            <Signup />
+            <Signup setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/Login">
             <Login setCurrentUser={setCurrentUser} />

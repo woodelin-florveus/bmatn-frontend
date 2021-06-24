@@ -1,15 +1,17 @@
+import React from "react"
+import PackageCards from "./PackageCards"
+
+
 
 
 function Homepage(){
     return (
-        <div>
-            <h1> Welcome to your home page</h1>
+        <div className="main-body">
 
-            <h1> Display frontend data here</h1>
-
-
+        <PackageCards/>
+           
         </div>
     )
 }
 
-export default Homepage;
+export default Homepage();

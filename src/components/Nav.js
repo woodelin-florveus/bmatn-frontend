@@ -10,8 +10,15 @@ function Nav({ currentUser, setCurrentUser}){
 
 
     return (
+
+        <>
+
         <nav>
-            <Link to="/">
+            {/* <Link to="/">
+                Home
+            </Link> */}
+
+            <Link to="/home">
                 Home
             </Link>
             
@@ -41,6 +48,13 @@ function Nav({ currentUser, setCurrentUser}){
             </>
             )}
         </nav>
+                
+
+               
+                
+            
+        </>
+
     )
 
 }
