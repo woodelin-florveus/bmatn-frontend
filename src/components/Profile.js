@@ -6,7 +6,8 @@ function Profile({ currentUser, setCurrentUser }){
 
     const [formData, setFormData] = useState({ 
         profile_image: currentUser.profile_image, 
-        name: currentUser.name
+        name: currentUser.name,
+        email: currentUser.email
     })
 
     console.log(currentUser)
@@ -36,14 +37,14 @@ function Profile({ currentUser, setCurrentUser }){
         
     }
 
-    const {profile_image, name} = formData
+    const {profile_image, name, email} = formData
 
 
 
     return (
         <form onSubmit={handleSubmit} autoComplete='off'>
 
-            <h1> {currentUser.email} </h1>
+            <h1> {email} </h1>
 
             <img src ={profile_image && profile_image.length ? profile_image : "https://cdn.iconscout.com/icon/free/png-512/account-profile-avatar-man-circle-round-user-30452.png"} 
             
@@ -55,6 +56,11 @@ function Profile({ currentUser, setCurrentUser }){
                     <label>profile name: {name}</label>
       
                 <input type="text" name="name"  onChange={handleChange}/>
+
+            <label>profile email</label>
+      
+            <input type="text" name="email"  onChange={handleChange}/>
+      
 
             <input type='submit' value='update'/>
 
