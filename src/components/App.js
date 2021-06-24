@@ -11,6 +11,10 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
 
+
+  console.log(currentUser)
+
+
   // use a useEffect to remain logged in
 
   useEffect(() => {
@@ -29,7 +33,6 @@ function App() {
       fetch("http://localhost:3000/myself")
       .then(response => response.json())
       .then(user => {
-        //setCurrentUser(user)
         setCurrentUser(user)
       });  
     }
@@ -40,14 +43,14 @@ function App() {
   return (
     <div className="app">
 
-      <Nav currentUser={currentUser} />
+      <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
       {/* {currentUser ? <h1>Welcome, {currentUser.name}</h1> : <h1>Please Login or sign up</h1>}   */}
       <Switch>
           <Route path="/home">
             <Homepage />
           </Route>
           <Route path="/profile">
-            {currentUser && <Profile currentUser={currentUser} />}
+            {currentUser && <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           </Route>
           <Route path="/Signup">
             <Signup />

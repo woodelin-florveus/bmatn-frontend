@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom'
 
 
 
-function Nav({ currentUser}){
+function Nav({ currentUser, setCurrentUser}){
 
-
+    function handleLogout(){
+        setCurrentUser(null)
+    }
 
 
     return (
@@ -25,7 +27,8 @@ function Nav({ currentUser}){
 
                 <Link to="/profile"> Profile </Link>
 
-                <Link to="/logout">Logout </Link>
+                <Link to="/logout" onClick={handleLogout}>Logout </Link>
+                
                 </>
             ) : (
 
