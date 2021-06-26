@@ -33,7 +33,7 @@ function Login({ setCurrentUser }){
             .then(user => {
                 setCurrentUser(user)
                 //Redirect
-                history.push("/")
+                history.push("/home")
             })
         }
 

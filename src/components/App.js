@@ -1,6 +1,7 @@
 import {Switch, Route} from 'react-router-dom'
 import Homepage from './Homepage';
 import Trainer from './Trainer';
+import Appointment from './Appointment'
 import Nav from './Nav';
 import Profile from './Profile';
 import Signup from './Signup';
@@ -46,14 +47,16 @@ function App() {
 
       <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
       {/* {currentUser ? <h1>Welcome, {currentUser.name}</h1> : <h1>Please Login or sign up</h1>}   */}
-      <img src="https://dummyimage.com/1200x400/a8a7b2/ffffff.jpg" alt="dummyImage" />
+      
       <Switch>
           <Route path="/home">
             <Homepage />
           </Route>
-
           <Route path="/trainers">
             <Trainer />
+          </Route>
+          <Route path="/appointments">
+            <Appointment />
           </Route>
           <Route path="/profile">
             {currentUser && <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />}

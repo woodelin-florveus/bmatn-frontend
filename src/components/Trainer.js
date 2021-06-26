@@ -7,10 +7,13 @@ function Trainer(){
     const extra = (
         <div className='ui-two buttons'>
         <Button basic color='green'>
-          Approve
+          Book
         </Button>
-        <Button basic color='red'>
-          Decline
+        <Button basic color='green'>
+          More Info ...
+        </Button>
+        <Button basic color='green'>
+          Contact
         </Button>
       </div>
       )
@@ -19,15 +22,42 @@ function Trainer(){
         <div>
             <h1 className="trainer-header" style={{textAlign:"center", padding:"1em"}}> Local Trainers</h1>
 
+  <Card.Group itemsPerRow={4} style={{padding:"2em"}}>
+
 <Card
     image="https://dummyimage.com/650x650/000/fff"
-    header='Elliot Baker'
-    meta='Friend'
-    description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+    header='Trainer Name'
+    meta='Booked'
+    description='Add Bio'
+    extra={extra}
+  />
+  
+  <Card
+    image="https://dummyimage.com/650x650/000/fff"
+    header='Trainer Name'
+    meta='Booked'
+    description='Add Bio'
     extra={extra}
   />
 
-        </div>
+<Card
+    image="https://dummyimage.com/650x650/000/fff"
+    header='Trainer Name'
+    meta='Booked'
+    description='Add Bio'
+    extra={extra}
+  />
+
+<Card
+    image="https://dummyimage.com/650x650/000/fff"
+    header='Trainer Name'
+    meta='Booked'
+    description='Add Bio'
+    extra={extra}
+  />
+  
+  </Card.Group>
+      </div>
     )
 
 }

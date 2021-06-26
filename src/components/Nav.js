@@ -12,7 +12,7 @@ function Nav({ currentUser, setCurrentUser}){
     return (
 
         <>
-
+      
         <nav>
             {/* <Link to="/">
                 Home
@@ -26,7 +26,7 @@ function Nav({ currentUser, setCurrentUser}){
                 <>
                 <Link to="/trainers"> Trainers </Link>
 
-                <Link to="/services"> Services </Link>
+                {/* <Link to="/services"> Services </Link> */}
     
                 <Link to="/appointments"> Appointments </Link>
     
@@ -49,7 +49,7 @@ function Nav({ currentUser, setCurrentUser}){
             )}
         </nav>
                 
-
+        <img src="https://dummyimage.com/1200x400/a8a7b2/ffffff.jpg" alt="dummyImage" />
                
                 
             
