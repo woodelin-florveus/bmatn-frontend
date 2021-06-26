@@ -1,5 +1,6 @@
 import {Switch, Route} from 'react-router-dom'
 import Homepage from './Homepage';
+import Trainer from './Trainer';
 import Nav from './Nav';
 import Profile from './Profile';
 import Signup from './Signup';
@@ -49,6 +50,10 @@ function App() {
       <Switch>
           <Route path="/home">
             <Homepage />
+          </Route>
+
+          <Route path="/trainers">
+            <Trainer />
           </Route>
           <Route path="/profile">
             {currentUser && <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />}

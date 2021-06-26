@@ -7,11 +7,11 @@ import PackageCards from "./PackageCards"
 function Homepage(){
     return (
         <div className="main-body">
-
-        <PackageCards/>
+            
+        <PackageCards />
            
         </div>
     )
 }
 
-export default Homepage();
+export default Homepage;
