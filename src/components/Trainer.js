@@ -20,7 +20,7 @@ function Trainer(){
 
     return(
         <div>
-            <h1 className="trainer-header" style={{textAlign:"center", padding:"1em"}}> Local Trainers</h1>
+            <h1 className="trainer-header" style={{textAlign:"center", padding:"1em"}}> Choose Local Trainers</h1>
 
   <Card.Group itemsPerRow={4} style={{padding:"2em"}}>
 

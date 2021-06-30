@@ -2,11 +2,13 @@ import {Switch, Route} from 'react-router-dom'
 import Homepage from './Homepage';
 import Trainer from './Trainer';
 import Appointment from './Appointment'
+import BookInfoForm from './BookInfoForm';
 import Nav from './Nav';
 import Profile from './Profile';
 import Signup from './Signup';
 import Login from './Login'
 import { useEffect, useState } from 'react';
+import BookDateTimeForm from './BookDateTimeform';
 
 
 function App() {
@@ -57,6 +59,12 @@ function App() {
           </Route>
           <Route path="/appointments">
             <Appointment />
+          </Route>
+          <Route path="/bookinfoform">
+            <BookInfoForm />
+          </Route>
+          <Route path="/bookdate">
+            <BookDateTimeForm />
           </Route>
           <Route path="/profile">
             {currentUser && <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />}

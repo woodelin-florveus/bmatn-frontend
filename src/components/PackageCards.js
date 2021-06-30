@@ -7,18 +7,6 @@ function PackageCards(){
     return(
         <div>
 
-{/* <Card.Group itemsPerRow={4}>
-    <Card raised image="https://dummyimage.com/200x200/d9d9d9/0011ff.jpg" alt="dummyImage" />
-    <Card raised image="https://dummyimage.com/200x200/d9d9d9/0011ff.jpg" alt="dummyImage" />
-    <Card raised image="https://dummyimage.com/200x200/d9d9d9/0011ff.jpg" alt="dummyImage" />
-    <Card raised image="https://dummyimage.com/200x200/d9d9d9/0011ff.jpg" alt="dummyImage" />
-    <Card raised image="https://dummyimage.com/200x200/d9d9d9/0011ff.jpg" alt="dummyImage" />
-    <Card raised image="https://dummyimage.com/200x200/d9d9d9/0011ff.jpg" alt="dummyImage" />
-    <Card raised image="https://dummyimage.com/200x200/d9d9d9/0011ff.jpg" alt="dummyImage" />
-    <Card raised image="https://dummyimage.com/200x200/d9d9d9/0011ff.jpg" alt="dummyImage" />
-  </Card.Group> */}
-
-
 <h2 className="home-title" style={{textAlign:"center", padding:"1em"}}> Booking Packages </h2>
 
 <Card.Group itemsPerRow={4}>
