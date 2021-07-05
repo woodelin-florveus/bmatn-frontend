@@ -1,36 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DayTimePicker from '@mooncake-dev/react-day-time-picker';
+
 
 
 function BookDateTimeForm(){
 
+    const [dateForm, setDateForm] = useState({name: "", date: "", time: ""})
 
-//  const handledSchedule = dateTime => {
-//         // const [hours, minutes, seconds] = dateTime.split(':')
-//         //     console.log ('scheduled : ', `${(hours > 12) ? hours - 12 : hours} : ${minutes}${seconds ? `:${seconds}` : ''}
-//         //     ${(hours >= 12) ? 'PM' : 'AM'}`)
- 
-//             console.log('scheduled :', dateTime)
-//         }
 
-    const timeSlotValidator = slotTime => {
 
-        const eveningTime = new Date(
-            slotTime.getFullYear(),
-            slotTime.getMonth(),
-            slotTime.getDate(),
-            18, 
-            0,
-            0
-        )
-
-        // const isValid = slotTime.getTime() > eveningTime.getTime();
-        // return isValid
+    const handleScheduled = dateTime => {
+        console.log('scheduled: ', dateTime)
     }
 
-        const chooseTrainer = () => {
-            console.log('Choose Trainer')
-        }
+    
+    const handleUpdate = event => {
+        setDateForm({...dateForm, [event.target.name]: event.target.value})
+    }
+
+
+    
 
   return (
       <>
@@ -38,9 +27,43 @@ function BookDateTimeForm(){
 
      <DayTimePicker timeSlotSizeMinutes={15} 
 
-        onConfirm={chooseTrainer}    
+        onConfirm={handleScheduled}    
 
      />
+
+        <form>
+            <label> Name:</label>
+            <input type="text" 
+             name="name"
+             placeholder={handleScheduled}
+             onChange={handleUpdate}
+             value={dateForm.name}
+            />
+
+            <label> Date:</label>
+            <input type="text" 
+             name="date"
+             placeholder="appointment-date"
+             onChange={handleUpdate}
+             value={dateForm.date}
+            />
+
+            <label>Time</label>
+            <input type="text"
+             name="time"
+             placeholder="appointment-time"
+             onChange={handleUpdate}
+             value={dateForm.time}
+            />
+
+            <input
+                type='submit'
+             />
+        </form>
+
+
+
+
 
         </>
     )
