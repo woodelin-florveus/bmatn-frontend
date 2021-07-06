@@ -3,15 +3,22 @@ import DayTimePicker from '@mooncake-dev/react-day-time-picker';
 
 
 
+
 function BookDateTimeForm(){
 
-    const [dateForm, setDateForm] = useState({name: "", date: "", time: ""})
+    const [dateForm, setDateForm] = useState({
+        name: "", 
+        date: "", 
+        time: ""})
 
+    
 
+    
 
     const handleScheduled = dateTime => {
         console.log('scheduled: ', dateTime)
     }
+
 
     
     const handleUpdate = event => {
@@ -19,23 +26,27 @@ function BookDateTimeForm(){
     }
 
 
-    
+
+
 
   return (
       <>
-      <h1>Book a Date</h1>
+      <h1> bookdate: {dateForm.date}</h1>
 
-     <DayTimePicker timeSlotSizeMinutes={15} 
-
-        onConfirm={handleScheduled}    
-
+     <DayTimePicker 
+     timeSlotSizeMinutes={15} 
+     value={dateForm.date}
+     inputProps={{placeholder: "start date"}}
+     onConfirm={handleScheduled}
      />
 
-        <form>
+     
+
+        <form autoComplete="off">
             <label> Name:</label>
             <input type="text" 
              name="name"
-             placeholder={handleScheduled}
+             placeholder="add name"
              onChange={handleUpdate}
              value={dateForm.name}
             />
