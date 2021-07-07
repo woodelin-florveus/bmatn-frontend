@@ -76,7 +76,18 @@ function BookDateTimeForm(){
             />
 
             <label>Location</label>
+                <select>
+                    <option> Brooklyn </option>
+                    <option> Queens </option>
+                    <option> Manhattan </option>
+                </select>
 
+                <label>Available trainers</label>
+                    <select>
+                        <option> Trainer_1</option>
+                        <option> Trainer_2</option>
+                        <option> Trainer_3</option>                        
+                    </select>
             <input
                 type='submit'
                 
