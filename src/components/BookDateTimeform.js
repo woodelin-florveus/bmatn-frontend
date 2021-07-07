@@ -25,8 +25,7 @@ function BookDateTimeForm(){
 
     const [date, setDate] = useState(new Date());
     
-    //const {name, date, time} = dateForm
-   
+  
 
   return (
       <>
@@ -43,14 +42,16 @@ function BookDateTimeForm(){
              name="name"
              placeholder="add name"
              onChange={handleUpdate}
-             value={dataForm.name}
+             value={dateForm.name}
             />
 
-            <label> Date:</label>
+            <label> Date: {date.toString()}</label>
             
             <DatePicker 
             selected={date} 
-            onChange={(date) => setDateForm(date)} 
+            onChange={(date) => setDate(date)} 
+            showTimeSelect
+            dateFormat="MMMM d, yyyy h:mm aa"
             />
             
             
@@ -69,7 +70,7 @@ function BookDateTimeForm(){
              name="time"
              placeholder="appointment-time"
              onChange={handleUpdate}
-             value={dateForm.time}
+             value={date.toString()}
             />
 
             <input
