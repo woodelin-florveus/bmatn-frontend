@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 //import DayTimePicker from '@mooncake-dev/react-day-time-picker';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment'
 
 
 
@@ -22,19 +23,31 @@ function BookDateTimeForm(){
         setDateForm({...dateForm, [event.target.name]: event.target.value})
     }
 
+    const handleSub = event => {
+        event.preventDefault()
+        console.log(event.target[2].value)
+    }
 
     const [date, setDate] = useState(new Date());
     
+   
   
 
   return (
       <>
       {/* <h1> bookdate: {dateForm.date}</h1> */}
 
+
+      <DatePicker 
+            selected={date} 
+            onChange={(date) => setDate(date)} 
+            showTimeSelect
+            dateFormat="MMMM d, yyyy h:mm aa"
+            />
      
      
 
-        <form className="book-form" autoComplete="off">
+        <form onSubmit={handleSub} className="book-form" autoComplete="off">
         
 
             <label> Name:</label>
@@ -45,36 +58,28 @@ function BookDateTimeForm(){
              value={dateForm.name}
             />
 
-            <label> Date: {date.toString()}</label>
+            <label> Please Schedule Date</label>
             
-            <DatePicker 
-            selected={date} 
-            onChange={(date) => setDate(date)} 
-            showTimeSelect
-            dateFormat="MMMM d, yyyy h:mm aa"
-            />
-            
-            
-            {/* <h4>Date: {date}</h4> */}
-            
-            
-            {/* <input type="text" 
+            <input type="text" 
              name="date"
              placeholder="appointment-date"
              onChange={handleUpdate}
-             value={dateForm.date}
-            /> */}
+             value={moment(date).format("MMM Do YY")}
+            />
 
             <label>Time</label>
             <input type="text"
              name="time"
              placeholder="appointment-time"
              onChange={handleUpdate}
-             value={date.toString()}
+             value={moment(date).format("LT")}
             />
+
+            <label>Location</label>
 
             <input
                 type='submit'
+                
              />
         </form>
 
