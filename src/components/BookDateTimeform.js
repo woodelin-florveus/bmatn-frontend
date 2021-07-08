@@ -13,19 +13,22 @@ function BookDateTimeForm(){
     const [dateForm, setDateForm] = useState({
         name: "", 
         date: "", 
-        time: ""})
+        time: "",
+        location: "",
+        trainer: ""})
 
     // const [date, setDate] = useState(new Date())
 
-    // console.log(date)
+     console.log(dateForm)
     
     const handleUpdate = event => {
         setDateForm({...dateForm, [event.target.name]: event.target.value})
+        console.log(event.target)
     }
 
     const handleSub = event => {
         event.preventDefault()
-        console.log(event.target[2].value)
+        
     }
 
     const [date, setDate] = useState(new Date());
@@ -76,18 +79,18 @@ function BookDateTimeForm(){
             />
 
             <label>Location</label>
-                <select>
-                    <option> Brooklyn </option>
-                    <option> Queens </option>
-                    <option> Manhattan </option>
+                <select value={dateForm.location} onChange={handleUpdate} name="location">
+                    <option value="Brooklyn"> Brooklyn </option>
+                    <option value="Queens"> Queens </option>
+                    <option value="Manhattan"> Manhattan </option>
                 </select>
 
                 <label>Available trainers</label>
-                    <select>
-                        <option> Trainer_1</option>
-                        <option> Trainer_2</option>
-                        <option> Trainer_3</option>                        
-                    </select>
+                    <select value={dateForm.trainer} onChange={handleUpdate} name="trainer">
+                        <option value="trainer_1"> Trainer_1</option>
+                        <option value="trainer_2"> Trainer_2</option>
+                        <option value="trainer_3"> Trainer_3</option>                        
+                    </select> 
             <input
                 type='submit'
                 
