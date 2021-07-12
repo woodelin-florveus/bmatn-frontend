@@ -1,7 +1,8 @@
-import { Card, Button } from 'semantic-ui-react'
+import TrainerCard from './TrainerCard'
+import { Grid, Button } from 'semantic-ui-react'
 
 
-function Trainer(){
+function Trainer({trainers, setTrainer}){
 
 
     const extra = (
@@ -10,54 +11,45 @@ function Trainer(){
           Book
         </Button>
         <Button basic color='green'>
-          More Info ...
-        </Button>
-        <Button basic color='green'>
           Contact
         </Button>
       </div>
       )
 
+
+    const listTrainers = trainers.map((trainer) => {
+
+
+        return (
+            <TrainerCard 
+            key={trainer.id}
+            trainer={trainer}
+            extra={extra}
+            />
+        )
+    })
+
+
+
+    
+
     return(
-        <div>
-            <h1 className="trainer-header" style={{textAlign:"center", padding:"1em"}}> Choose Local Trainers</h1>
+    
+      <>
 
-  <Card.Group itemsPerRow={4} style={{padding:"2em"}}>
+        <h1 className="trainer-header" style={{textAlign:"center", padding:"1em"}}> Choose Local Trainers</h1>
 
-<Card
-    image="https://dummyimage.com/650x650/000/fff"
-    header='Trainer Name'
-    meta='Booked'
-    description='Add Bio'
-    extra={extra}
-  />
-  
-  <Card
-    image="https://dummyimage.com/650x650/000/fff"
-    header='Trainer Name'
-    meta='Booked'
-    description='Add Bio'
-    extra={extra}
-  />
+          <Grid columns={4} style={{padding:"2em"}}>
 
-<Card
-    image="https://dummyimage.com/650x650/000/fff"
-    header='Trainer Name'
-    meta='Booked'
-    description='Add Bio'
-    extra={extra}
-  />
+            {/* <Grid.Row> */}
+              {listTrainers}
+            {/* </Grid.Row> */}
 
-<Card
-    image="https://dummyimage.com/650x650/000/fff"
-    header='Trainer Name'
-    meta='Booked'
-    description='Add Bio'
-    extra={extra}
-  />
-  
-  </Card.Group>
-      </div>
+          </Grid>
+
+
+      </>
+
     )
 
 }

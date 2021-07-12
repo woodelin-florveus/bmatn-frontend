@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-//import DayTimePicker from '@mooncake-dev/react-day-time-picker';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment'
-
-
-
-
 
 function BookDateTimeForm(){
 
@@ -17,13 +12,10 @@ function BookDateTimeForm(){
         location: "",
         trainer: ""})
 
-    // const [date, setDate] = useState(new Date())
-
-     console.log(dateForm)
+    const [date, setDate] = useState(new Date());
     
     const handleUpdate = event => {
         setDateForm({...dateForm, [event.target.name]: event.target.value})
-        console.log(event.target)
     }
 
     const handleSub = event => {
@@ -31,16 +23,10 @@ function BookDateTimeForm(){
         
     }
 
-    const [date, setDate] = useState(new Date());
-    
-   
-  
+    console.log(dateForm)
 
   return (
       <>
-      {/* <h1> bookdate: {dateForm.date}</h1> */}
-
-
       <DatePicker 
             selected={date} 
             onChange={(date) => setDate(date)} 
@@ -85,7 +71,7 @@ function BookDateTimeForm(){
                     <option value="Manhattan"> Manhattan </option>
                 </select>
 
-                <label>Available trainers</label>
+            <label>Available trainers</label>
                     <select value={dateForm.trainer} onChange={handleUpdate} name="trainer">
                         <option value="trainer_1"> Trainer_1</option>
                         <option value="trainer_2"> Trainer_2</option>
@@ -96,10 +82,6 @@ function BookDateTimeForm(){
                 
              />
         </form>
-
-
-
-
 
         </>
     )

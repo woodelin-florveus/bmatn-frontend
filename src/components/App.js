@@ -16,22 +16,11 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
 
-
-  console.log(currentUser)
-
-
-  // use a useEffect to remain logged in
+  const [trainers, setTrainers] = useState([])
+  const [appointments, setAppointments] = useState([])
+  
 
   useEffect(() => {
-
-    // check if a token has already logged in (look for the token)
-
-    // if already logged in use token to log them in again
-
-    // request => get auto log in
-
-    // response => setCurrentUser
-
     const token = true
 
     if(token){
@@ -44,6 +33,23 @@ function App() {
   },[])
 
 
+  // trainers 
+
+  useEffect(() => {
+      fetch('http://localhost:3000/trainers')
+      .then(response => response.json())
+      .then(setTrainers)
+  },[])
+
+  // appointments
+
+  useEffect(() => {
+    fetch('http://localhost:3000/appointments')
+    .then(response => response.json())
+    .then(setAppointments)
+  }, [])
+
+    
 
   return (
     <div className="app">
@@ -56,10 +62,10 @@ function App() {
             <Homepage />
           </Route>
           <Route path="/trainers">
-            <Trainer />
+            <Trainer trainers={trainers} setTrainers={setTrainers} />
           </Route>
           <Route path="/appointments">
-            <Appointment />
+            <Appointment appointments={appointments} setAppointments={setAppointments} />
           </Route>
           <Route path="/bookinfoform">
             <BookInfoForm />
