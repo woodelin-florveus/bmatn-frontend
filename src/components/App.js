@@ -49,6 +49,7 @@ function App() {
     .then(setAppointments)
   }, [])
 
+
     
 
   return (
@@ -71,7 +72,7 @@ function App() {
             <BookInfoForm />
           </Route>
           <Route path="/bookdate">
-            <BookDateTimeForm />
+            <BookDateTimeForm trainers={trainers} currentUser={currentUser} setTrainers={setTrainers} />
           </Route>
           <Route path="/profile">
             {currentUser && <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />}

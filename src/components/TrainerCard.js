@@ -1,6 +1,7 @@
 
-import { Grid, Image, Card, Button } from "semantic-ui-react"
+import { Button } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
+import DummyForm from "./DummyForm"
 
 function TrainerCard ({extra, trainer}) {
 
@@ -15,7 +16,7 @@ function TrainerCard ({extra, trainer}) {
 
     return (
         <>
-      <Grid.Column>
+      {/* <Grid.Column>
           <Card>
             <Image src={image} />
             <Card.Content>
@@ -32,14 +33,40 @@ function TrainerCard ({extra, trainer}) {
     </Card.Content>
     <Card.Content extra>
     <Button primary>Contact</Button>
-    <Link to="/bookdate">
+    <Link to="/bookdate" query={{ the: 'query' }}>
     <Button secondary>Book</Button>
     </Link>
     </Card.Content>
           </Card>
-      </Grid.Column>
+      </Grid.Column> */}
 
+        
+          <div className="column">
+            <div className="ui fluid card">
+                <div className='image'>
+                  <img src={image}  alt="trainer_image" />
+                </div>
+
+                    <div className="content">
+                      <h3>{name}</h3>
+                      <div className="meta"> 
+                        <span className="booked"> Booking Status | {booked.toString()}</span> 
+                      </div>
+                        <div className="description">
+                          {bio}
+                        </div>
+                    </div>
+
+                          <div className="extra-content">
+                          <div class="ui basic green button">Book</div>
+                              <Link to="/bookdate" />
+                          <Button secondary>Book</Button>
+                          </div>
+              </div>
+          </div>
         </>
+
+      
 
       
     )

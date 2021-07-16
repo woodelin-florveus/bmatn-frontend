@@ -1,5 +1,6 @@
 import TrainerCard from './TrainerCard'
 import { Grid, Button } from 'semantic-ui-react'
+import DummyForm from './DummyForm'
 
 
 function Trainer({trainers, setTrainer}){
@@ -30,23 +31,27 @@ function Trainer({trainers, setTrainer}){
     })
 
 
-
-    
-
     return(
     
       <>
 
         <h1 className="trainer-header" style={{textAlign:"center", padding:"1em"}}> Choose Local Trainers</h1>
 
-          <Grid columns={4} style={{padding:"2em"}}>
-
-            {/* <Grid.Row> */}
+          {/* <Grid columns={4} style={{padding:"2em"}}>
+          
+            <Grid.Row>
               {listTrainers}
-            {/* </Grid.Row> */}
+            </Grid.Row>
 
-          </Grid>
+          </Grid> */}
 
+          <div className="ui three column grid" style={{padding:"4em"}}>
+            
+              {listTrainers}
+            </div>
+         
+         <DummyForm trainers={trainers} />
+            
 
       </>
 

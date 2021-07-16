@@ -3,16 +3,21 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment'
 
-function BookDateTimeForm(){
+function BookDateTimeForm({ trainers, currentUser }){
+    
+
+        
+
+    const [date, setDate] = useState(new Date());
 
     const [dateForm, setDateForm] = useState({
-        name: "", 
-        date: "", 
-        time: "",
+        name: "woodelin", 
+        training_date: moment(date).format("MMM Do YY"), 
+        time: moment(date).format("LT"),
         location: "",
         trainer: ""})
 
-    const [date, setDate] = useState(new Date());
+    
     
     const handleUpdate = event => {
         setDateForm({...dateForm, [event.target.name]: event.target.value})
@@ -23,7 +28,11 @@ function BookDateTimeForm(){
         
     }
 
-    console.log(dateForm)
+       let test = trainers.map((trainer) => {
+           trainer.appointments.map((train) => {
+               console.log(train.location)
+           })
+       })
 
   return (
       <>
@@ -66,16 +75,21 @@ function BookDateTimeForm(){
 
             <label>Location</label>
                 <select value={dateForm.location} onChange={handleUpdate} name="location">
-                    <option value="Brooklyn"> Brooklyn </option>
-                    <option value="Queens"> Queens </option>
-                    <option value="Manhattan"> Manhattan </option>
+                    {trainers.map((trainer) => 
+                      trainer.appointments.map((train) => 
+                        <option key={train.id}>{train.location}</option>
+                        )
+                    )}
                 </select>
 
             <label>Available trainers</label>
                     <select value={dateForm.trainer} onChange={handleUpdate} name="trainer">
-                        <option value="trainer_1"> Trainer_1</option>
-                        <option value="trainer_2"> Trainer_2</option>
-                        <option value="trainer_3"> Trainer_3</option>                        
+                       
+                        {trainers.map((trainer) => 
+                        
+                            <option key={trainer.id}>{trainer.name}</option>
+                        
+                        )}
                     </select> 
             <input
                 type='submit'
