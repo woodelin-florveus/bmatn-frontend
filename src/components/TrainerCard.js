@@ -58,7 +58,7 @@ function TrainerCard ({trainer_location, trainer}) {
                             <div className="ui basic green button" onClick={() => history.push({
                               pathname: "/bookdate",
                               state: { name: name, trainer_location: trainer_location.toString()}
-                            })}>Send State</div>
+                            })}>Book</div>
                             
                             <div className="ui basic red button">Decline</div>
                         </div>            
