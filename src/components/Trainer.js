@@ -1,5 +1,5 @@
 import TrainerCard from './TrainerCard'
-import { Grid, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 
 

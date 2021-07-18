@@ -26,7 +26,6 @@ function AppointmentCard({appointment}){
     <Button secondary>Edit</Button>
     </Card.Content>
         </Card>
-        
 
         </Card.Group>
 

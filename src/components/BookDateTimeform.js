@@ -20,7 +20,7 @@ function BookDateTimeForm({ trainers }){
         training_date: moment(date).format("MMM Do YY"), 
         time: moment(date).format("LT"),
         location: "",
-        trainer: location.state.name})
+        trainer: ""})
 
     
     
@@ -37,14 +37,7 @@ function BookDateTimeForm({ trainers }){
 
   return (
       <>
-      <DatePicker 
-            selected={date} 
-            onChange={(date) => setDate(date)} 
-            showTimeSelect
-            dateFormat="MMMM d, yyyy h:mm aa"
-            />
-     
-     
+    
 
         <form onSubmit={handleSub} className="book-form" autoComplete="off">
         
@@ -58,6 +51,14 @@ function BookDateTimeForm({ trainers }){
             />
 
             <label> Please Schedule Date</label>
+
+            <DatePicker
+            className="customDate"
+            selected={date} 
+            onChange={(date) => setDate(date)} 
+            showTimeSelect
+            dateFormat="MMMM d, yyyy h:mm aa"
+            />
             
             <input type="text" 
              name="date"
