@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import { useLocation } from "react-router-dom"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment'
 
-function BookDateTimeForm({ trainers, currentUser }){
+function BookDateTimeForm({ trainers }){
     
 
-        
+
+    const location = useLocation()
+
+    
+    console.log(location.state.trainer_location)
 
     const [date, setDate] = useState(new Date());
 
@@ -15,7 +20,7 @@ function BookDateTimeForm({ trainers, currentUser }){
         training_date: moment(date).format("MMM Do YY"), 
         time: moment(date).format("LT"),
         location: "",
-        trainer: ""})
+        trainer: location.state.name})
 
     
     
@@ -28,11 +33,7 @@ function BookDateTimeForm({ trainers, currentUser }){
         
     }
 
-       let test = trainers.map((trainer) => {
-           trainer.appointments.map((train) => {
-               console.log(train.location)
-           })
-       })
+
 
   return (
       <>
@@ -74,23 +75,37 @@ function BookDateTimeForm({ trainers, currentUser }){
             />
 
             <label>Location</label>
-                <select value={dateForm.location} onChange={handleUpdate} name="location">
+                    <input type="text"
+                    name="name"
+                    placeholder="trainer location"
+                    onChange={handleUpdate}
+                    value={location.state.trainer_location}
+                    
+                    />
+                {/* <select value={dateForm.location} onChange={handleUpdate} name="location">
                     {trainers.map((trainer) => 
                       trainer.appointments.map((train) => 
                         <option key={train.id}>{train.location}</option>
                         )
                     )}
-                </select>
+                </select> */}
 
-            <label>Available trainers</label>
-                    <select value={dateForm.trainer} onChange={handleUpdate} name="trainer">
+            <label> trainer</label>
+
+                        <input type="text"
+                        name="name"
+                        placeholder="trainer_name"
+                        value={location.state.name}
+                        onChange={handleUpdate}
+                         />
+                    {/* <select value={dateForm.trainer} onChange={handleUpdate} name="trainer">
                        
                         {trainers.map((trainer) => 
                         
                             <option key={trainer.id}>{trainer.name}</option>
                         
                         )}
-                    </select> 
+                    </select>  */}
             <input
                 type='submit'
                 

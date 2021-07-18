@@ -9,10 +9,7 @@ console.log(info)
 
     return(
         <>
-            <ul>{ trainers.map(train => (
-                <li>{train.name}</li>
-            ))}
-            </ul>
+          <h1>Hello</h1>
         </>
     )
 

@@ -25,6 +25,9 @@ function Trainer({trainers, setTrainer}){
             <TrainerCard 
             key={trainer.id}
             trainer={trainer}
+            trainer_location={trainer.appointments.map((appoint) => {
+              return appoint.location
+            })}
             extra={extra}
             />
         )
@@ -49,9 +52,7 @@ function Trainer({trainers, setTrainer}){
             
               {listTrainers}
             </div>
-         
-         <DummyForm trainers={trainers} />
-            
+             
 
       </>
 
