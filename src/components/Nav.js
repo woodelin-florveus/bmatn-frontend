@@ -49,7 +49,7 @@ function Nav({ currentUser, setCurrentUser}){
             )}
         </nav>
                 
-        <img src="https://dummyimage.com/1200x400/a8a7b2/ffffff.jpg" alt="dummyImage" />
+        <img src="https://dummyimage.com/1500x400/a8a7b2/ffffff.jpg" alt="dummyImage" />
                
                 
             

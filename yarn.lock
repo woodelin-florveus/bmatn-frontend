@@ -9748,6 +9748,11 @@
   "resolved" "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz"
   "version" "0.8.3"
 
+"react-rounded-image@^2.0.13":
+  "integrity" "sha512-K8IHgkEbIjRDyuVOPgac2ieAy9wmEGPMsQQbDdDNzuwgJzoe5/hvVrpMCOpWgry1Lu5p+eYDOytv7dzsYTx2bQ=="
+  "resolved" "https://registry.npmjs.org/react-rounded-image/-/react-rounded-image-2.0.13.tgz"
+  "version" "2.0.13"
+
 "react-router-dom@^5.2.0":
   "integrity" "sha512-gxAmfylo2QUjcwxI63RhQ5G85Qqt4voZpUXSEqCwykV0baaOTQDR1f0PmY8AELqIyVc0NEZUj0Gov5lNGcXgsA=="
   "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-5.2.0.tgz"

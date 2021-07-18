@@ -17,6 +17,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
 
   const [trainers, setTrainers] = useState([])
+  const [test, setTest] = useState([])
   const [appointments, setAppointments] = useState([])
   
 
@@ -41,6 +42,7 @@ function App() {
       .then(setTrainers)
   },[])
 
+
   // appointments
 
   useEffect(() => {
@@ -48,6 +50,8 @@ function App() {
     .then(response => response.json())
     .then(setAppointments)
   }, [])
+
+
 
 
     

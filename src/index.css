@@ -12,9 +12,9 @@ code {
     monospace;
 }
 
-img {
+/* img {
   width: 100%;
-}
+} */
 
 nav {
   text-align: center;
@@ -44,6 +44,15 @@ form {
   padding: 0 1rem 1rem;
 }
 
+
+.book_trainer-form {
+  background-color: #F9F9F9;
+  border: none;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 form input {
   margin: 0.25rem 0;
 }
@@ -64,3 +73,8 @@ form img {
   width: 45%;
 }
 
+.trainer_profile_image{
+  margin: auto;
+  display: block;
+  padding: 2em;
+}

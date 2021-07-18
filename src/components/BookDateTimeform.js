@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { useLocation } from "react-router-dom"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import ReactRoundedImage from "react-rounded-image"
 import moment from 'moment'
 
-function BookDateTimeForm({ trainers }){
+function BookDateTimeForm(){
     
 
 
     const location = useLocation()
 
-    
-    console.log(location.state.trainer_location)
 
     const [date, setDate] = useState(new Date());
 
@@ -37,9 +36,17 @@ function BookDateTimeForm({ trainers }){
 
   return (
       <>
-    
 
-        <form onSubmit={handleSub} className="book-form" autoComplete="off">
+        <div className="trainer_profile_image">
+        <ReactRoundedImage  
+            image="https://dummyimage.com/150x150/cfcfcf/ffffff"
+            roundedColor="none"
+            imageWidth="none"
+            imageHeight="none"
+        />
+        </div>
+
+        <form onSubmit={handleSub} className="book_trainer-form" autoComplete="off">
         
 
             <label> Name:</label>
@@ -83,13 +90,6 @@ function BookDateTimeForm({ trainers }){
                     value={location.state.trainer_location}
                     
                     />
-                {/* <select value={dateForm.location} onChange={handleUpdate} name="location">
-                    {trainers.map((trainer) => 
-                      trainer.appointments.map((train) => 
-                        <option key={train.id}>{train.location}</option>
-                        )
-                    )}
-                </select> */}
 
             <label> trainer</label>
 
@@ -99,17 +99,9 @@ function BookDateTimeForm({ trainers }){
                         value={location.state.name}
                         onChange={handleUpdate}
                          />
-                    {/* <select value={dateForm.trainer} onChange={handleUpdate} name="trainer">
-                       
-                        {trainers.map((trainer) => 
-                        
-                            <option key={trainer.id}>{trainer.name}</option>
-                        
-                        )}
-                    </select>  */}
+    
             <input
-                type='submit'
-                
+                type='submit'            
              />
         </form>
 
