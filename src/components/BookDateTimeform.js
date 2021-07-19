@@ -15,9 +15,10 @@ function BookDateTimeForm({appointments, setAppointments}){
 
     const [date, setDate] = useState(new Date());
 
+
     const [dateForm, setDateForm] = useState({
         name: "woodelin", 
-        training_date: moment(date).format("MMM Do YY"), 
+        date: moment(date).format("MMM Do YY"), 
         time: moment(date).format("LT"),
         location: location.state.trainer_location,
         trainer: location.state.name})
@@ -36,7 +37,7 @@ function BookDateTimeForm({appointments, setAppointments}){
             headers: {
                 'Content-Type': 'application/json',
             }, 
-            body: JSON.stringify({training_date: dateForm.training_date, time: dateForm.time, location: dateForm.location, trainer: dateForm.trainer})
+            body: JSON.stringify({date: dateForm.training_date, time: dateForm.time, location: dateForm.location, trainer: dateForm.trainer})
         })
         .then(response => response.json())
         .then(appointmentData => {
@@ -44,7 +45,7 @@ function BookDateTimeForm({appointments, setAppointments}){
             const newAppointmentData = [...appointments, appointmentData]
 
             setAppointments(newAppointmentData)
-            setDate({name:"", training_date: "", time: "", location:"", trainer:"" })
+            setDate({name:"", date: "", time: "", location:"", trainer:"" })
             history.push('/appointments')
         })
     }
