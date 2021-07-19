@@ -1,28 +1,12 @@
 
 
 import { useHistory } from "react-router-dom";
-//import { Link } from 'react-router-dom'
 
 function TrainerCard ({trainer_location, trainer}) {
 
-
-  console.log(trainer_location.toString())
-
   const history = useHistory()
 
-
-
-
-
   const {name, image, booked, rating, bio} = trainer
-
-  
-
-  
-  
-
-
-     
 
 
     return (
@@ -57,7 +41,7 @@ function TrainerCard ({trainer_location, trainer}) {
                              
                             <div className="ui basic green button" onClick={() => history.push({
                               pathname: "/bookdate",
-                              state: { name: name, trainer_location: trainer_location.toString()}
+                              state: { name: name, image: image, trainer_location: trainer_location.toString()}
                             })}>Book</div>
                             
                             <div className="ui basic red button">Decline</div>

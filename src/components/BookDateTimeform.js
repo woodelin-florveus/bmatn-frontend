@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { useLocation } from "react-router-dom"
+import { useLocation, useHistory } from "react-router-dom"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactRoundedImage from "react-rounded-image"
 import moment from 'moment'
 
-function BookDateTimeForm(){
+function BookDateTimeForm({appointments, setAppointments}){
     
 
+    const history = useHistory()
 
     const location = useLocation()
 
@@ -18,8 +19,8 @@ function BookDateTimeForm(){
         name: "woodelin", 
         training_date: moment(date).format("MMM Do YY"), 
         time: moment(date).format("LT"),
-        location: "",
-        trainer: ""})
+        location: location.state.trainer_location,
+        trainer: location.state.name})
 
     
     
@@ -30,16 +31,34 @@ function BookDateTimeForm(){
     const handleSub = event => {
         event.preventDefault()
         
+        fetch('http://localhost:3000/appointments', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+            }, 
+            body: JSON.stringify({training_date: dateForm.training_date, time: dateForm.time, location: dateForm.location, trainer: dateForm.trainer})
+        })
+        .then(response => response.json())
+        .then(appointmentData => {
+            console.log(appointmentData)
+            const newAppointmentData = [...appointments, appointmentData]
+
+            setAppointments(newAppointmentData)
+            setDate({name:"", training_date: "", time: "", location:"", trainer:"" })
+            history.push('/appointments')
+        })
     }
+
+    
 
 
 
   return (
-      <>
+      <div className="trainerForm-container" style={{padding:"2em"}}>
 
         <div className="trainer_profile_image">
         <ReactRoundedImage  
-            image="https://dummyimage.com/150x150/cfcfcf/ffffff"
+            image={location.state.image}
             roundedColor="none"
             imageWidth="none"
             imageHeight="none"
@@ -66,6 +85,8 @@ function BookDateTimeForm(){
             showTimeSelect
             dateFormat="MMMM d, yyyy h:mm aa"
             />
+
+            <label> Schedule Date:</label>
             
             <input type="text" 
              name="date"
@@ -105,7 +126,7 @@ function BookDateTimeForm(){
              />
         </form>
 
-        </>
+        </div>
     )
 
 }

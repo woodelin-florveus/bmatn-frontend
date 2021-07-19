@@ -46,11 +46,30 @@ form {
 
 
 .book_trainer-form {
-  background-color: #F9F9F9;
-  border: none;
+  background-color: #EFEFEF;
+  border-radius: 5px;
+  border: 2px solid lightslategrey;
   padding: 20px;
   display: flex;
   justify-content: center;
+}
+
+.book_trainer-form input[type="text"] {
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+.book_trainer-form input[type="submit"] {
+  width: 50%;
+  font-size: medium;
+  margin: auto;
+  margin-top: 1em;
+  border: none;
+  padding: 1em;
+  background-color: #007bff;
+  color:#fff;
 }
 
 form input {
@@ -74,7 +93,9 @@ form img {
 }
 
 .trainer_profile_image{
-  margin: auto;
-  display: block;
   padding: 2em;
+}
+
+.trainer_profile_image img {
+  width:10%;
 }
