@@ -16,22 +16,24 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
 
     const [date, setDate] = useState(new Date());
 
+    
+
 
     const [dateForm, setDateForm] = useState({
         trainer_id: location.state.id,
         name: "woodelin", 
-        date: date.toString(), 
-        time: moment(date).format("LT"),
+        date: new Date(), 
+        time: moment(new Date()).format("LT"),
         location: location.state.trainer_location,
         trainer: location.state.name})
 
-
-   
     
 
     const handleUpdate = event => {
         setDateForm({...dateForm, [event.target.name]: event.target.value})
     }
+
+    console.log(dateForm)
 
     const handleSub = event => {
         event.preventDefault()
@@ -41,7 +43,6 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
             headers: {
                 'Content-Type': 'application/json',
             }, 
-            //body: JSON.stringify({trainer_id: dateForm.trainer_id, date: dateForm.date, location: dateForm.location, trainer: dateForm.trainer})
             body: JSON.stringify({trainer_id: dateForm.trainer_id, date: dateForm.date, location: dateForm.location, trainer: dateForm.trainer, user_id: currentUser.id})
 
         })
@@ -51,7 +52,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
             const newAppointmentData = [...appointments, appointmentData]
 
             setAppointments(newAppointmentData)
-            setDate({name:"", date: dateForm.date, time: dateForm.time, location:"", trainer:""})
+            setDate({name:"", date: "", location:"", trainer:""})
             history.push('/appointments')
         })
     }
@@ -85,12 +86,11 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
 
             <label> Please Schedule Date</label>
 
-            <DatePicker
-            className="customDate"
+            {/* <DatePicker
             selected={date} 
             onChange={(date) => setDate(date)} 
             showTimeSelect
-            />
+            /> */}
 
             <label> Schedule Date:</label>
             
@@ -98,6 +98,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
              name="date"
              placeholder="appointment-date"
              onChange={handleUpdate}
+             //value={dateForm.date}
              value={moment(date).format("L")}
             />
 
@@ -106,7 +107,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
              name="time"
              placeholder="appointment-time"
              onChange={handleUpdate}
-             value={moment(date).format("LT").toString()}
+             value={dateForm.time}
             />
 
             <label>Location</label>
