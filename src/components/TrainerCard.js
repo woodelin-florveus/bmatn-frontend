@@ -6,8 +6,9 @@ function TrainerCard ({trainer_location, trainer}) {
 
   const history = useHistory()
 
-  const {name, image, booked, rating, bio} = trainer
-
+  const {id, name, image, booked, rating, bio} = trainer
+  
+    
 
     return (
         <>
@@ -41,7 +42,7 @@ function TrainerCard ({trainer_location, trainer}) {
                              
                             <div className="ui basic green button" onClick={() => history.push({
                               pathname: "/bookdate",
-                              state: { name: name, image: image, trainer_location: trainer_location.toString()}
+                              state: { id: id, name: name, image: image, trainer_location: trainer_location.toString()}
                             })}>Book</div>
                             
                             <div className="ui basic red button">Decline</div>

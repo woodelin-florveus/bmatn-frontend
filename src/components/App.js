@@ -76,7 +76,7 @@ function App() {
             <BookInfoForm />
           </Route>
           <Route path="/bookdate">
-            <BookDateTimeForm appointments={appointments} setAppointments={setAppointments} />
+            <BookDateTimeForm appointments={appointments} setAppointments={setAppointments} currentUser={currentUser} />
           </Route>
           <Route path="/profile">
             {currentUser && <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />}

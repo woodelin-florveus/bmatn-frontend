@@ -12,6 +12,7 @@ function Appointment({ appointments, setAppointments}){
     const listAppointments = appointments.map((appointment) => {
             return (
               <AppointmentCard 
+              key={appointment.id}
               appointment={appointment}
               />
             )

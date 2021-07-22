@@ -4,8 +4,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactRoundedImage from "react-rounded-image"
 import moment from 'moment'
+import { parse } from "date-fns";
 
-function BookDateTimeForm({appointments, setAppointments}){
+function BookDateTimeForm({appointments, setAppointments, currentUser}){
     
 
     const history = useHistory()
@@ -17,14 +18,17 @@ function BookDateTimeForm({appointments, setAppointments}){
 
 
     const [dateForm, setDateForm] = useState({
+        trainer_id: location.state.id,
         name: "woodelin", 
-        date: moment(date).format("MMM Do YY"), 
+        date: date.toString(), 
         time: moment(date).format("LT"),
         location: location.state.trainer_location,
         trainer: location.state.name})
 
+
+   
     
-    
+
     const handleUpdate = event => {
         setDateForm({...dateForm, [event.target.name]: event.target.value})
     }
@@ -37,7 +41,9 @@ function BookDateTimeForm({appointments, setAppointments}){
             headers: {
                 'Content-Type': 'application/json',
             }, 
-            body: JSON.stringify({date: dateForm.training_date, time: dateForm.time, location: dateForm.location, trainer: dateForm.trainer})
+            //body: JSON.stringify({trainer_id: dateForm.trainer_id, date: dateForm.date, location: dateForm.location, trainer: dateForm.trainer})
+            body: JSON.stringify({trainer_id: dateForm.trainer_id, date: dateForm.date, location: dateForm.location, trainer: dateForm.trainer, user_id: currentUser.id})
+
         })
         .then(response => response.json())
         .then(appointmentData => {
@@ -45,7 +51,7 @@ function BookDateTimeForm({appointments, setAppointments}){
             const newAppointmentData = [...appointments, appointmentData]
 
             setAppointments(newAppointmentData)
-            setDate({name:"", date: "", time: "", location:"", trainer:"" })
+            setDate({name:"", date: dateForm.date, time: dateForm.time, location:"", trainer:""})
             history.push('/appointments')
         })
     }
@@ -84,7 +90,6 @@ function BookDateTimeForm({appointments, setAppointments}){
             selected={date} 
             onChange={(date) => setDate(date)} 
             showTimeSelect
-            dateFormat="MMMM d, yyyy h:mm aa"
             />
 
             <label> Schedule Date:</label>
@@ -93,7 +98,7 @@ function BookDateTimeForm({appointments, setAppointments}){
              name="date"
              placeholder="appointment-date"
              onChange={handleUpdate}
-             value={moment(date).format("MMM Do YY")}
+             value={moment(date).format("L")}
             />
 
             <label>Time</label>
@@ -101,7 +106,7 @@ function BookDateTimeForm({appointments, setAppointments}){
              name="time"
              placeholder="appointment-time"
              onChange={handleUpdate}
-             value={moment(date).format("LT")}
+             value={moment(date).format("LT").toString()}
             />
 
             <label>Location</label>
@@ -123,7 +128,7 @@ function BookDateTimeForm({appointments, setAppointments}){
                          />
     
             <input
-                type='submit'            
+                type='submit' 
              />
         </form>
 

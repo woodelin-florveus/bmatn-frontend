@@ -7,7 +7,7 @@ function AppointmentCard({appointment}){
       const {location, date, id, name} = appointment
 
 
-      console.log(location)
+     
 
     return (
 
