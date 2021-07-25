@@ -4,7 +4,7 @@ import { Card, Button } from "semantic-ui-react"
 function AppointmentCard({appointment}){
 
 
-      const {location, date, id, name} = appointment
+      const {location, date} = appointment
 
 
      

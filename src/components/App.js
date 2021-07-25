@@ -17,7 +17,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
 
   const [trainers, setTrainers] = useState([])
-  const [test, setTest] = useState([])
   const [appointments, setAppointments] = useState([])
   
 
