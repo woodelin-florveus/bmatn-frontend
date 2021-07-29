@@ -74,11 +74,11 @@ function App() {
           <Route path="/home">
             <Homepage />
           </Route>
+          <Route path="/trainers/:id">
+            <TrainerInfo trainers={trainers} />
+          </Route>
           <Route path="/trainers">
             <Trainer trainers={trainers} setTrainers={setTrainers} />
-          </Route>
-          <Route path="/trainers/:id">
-            <TrainerInfo />
           </Route>
           <Route path="/appointments">
             <Appointment trainers={trainers} appointments={appointments} setAppointments={setAppointments} deleteAppointment={deleteAppointment} updateAppointment={updateAppointment} />

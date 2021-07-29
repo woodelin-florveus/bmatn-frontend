@@ -45,7 +45,9 @@ function TrainerCard ({trainer_location, trainer}) {
                         state: { id: id, name: name, image: image, trainer_location: trainer_location.toString()}
                         })}>Book</div>
 
-                    <div className="ui basic red button">More Info</div>
+                    <div className="ui basic red button" onClick={() => history.push({
+                      pathname: `/trainers/${id}`
+                    })}>More Info</div>
                     </div>            
                   </div>
               </div>
