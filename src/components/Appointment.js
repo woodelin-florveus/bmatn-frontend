@@ -4,7 +4,7 @@
 import { Grid } from "semantic-ui-react"
 import AppointmentCard from "./AppointmentCard";
 
-function Appointment({ appointments, setAppointments}){
+function Appointment({ appointments, setAppointments, deleteAppointment, updateAppointment}){
 
 
 
@@ -14,6 +14,9 @@ function Appointment({ appointments, setAppointments}){
               <AppointmentCard 
               key={appointment.id}
               appointment={appointment}
+              name={appointment.trainer.name}
+              deleteAppointment={deleteAppointment}
+              updateAppointment={updateAppointment}
               />
             )
     })

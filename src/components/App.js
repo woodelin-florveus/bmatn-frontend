@@ -51,7 +51,15 @@ function App() {
   }, [])
 
 
+  const deleteAppointment = (id) => {
+      const appointmentId = appointments.filter((appoint) => appoint.id !== id)
+      setAppointments(appointmentId)
+  }
 
+  const updateAppointment = (newAppointment) => {
+    const appointmentId = appointments.map((appoint) => appoint.id === newAppointment.id ? newAppointment : appoint)
+    setAppointments(appointmentId)
+  }
 
     
 
@@ -69,7 +77,7 @@ function App() {
             <Trainer trainers={trainers} setTrainers={setTrainers} />
           </Route>
           <Route path="/appointments">
-            <Appointment appointments={appointments} setAppointments={setAppointments} />
+            <Appointment appointments={appointments} setAppointments={setAppointments} deleteAppointment={deleteAppointment} updateAppointment={updateAppointment} />
           </Route>
           <Route path="/bookinfoform">
             <BookInfoForm />

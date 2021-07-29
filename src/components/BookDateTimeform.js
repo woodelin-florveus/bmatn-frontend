@@ -13,28 +13,28 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
 
     const location = useLocation()
 
-
-    
-    
-
-
     const [dateForm, setDateForm] = useState({
         trainer_id: location.state.id,
         name: "woodelin", 
         date: new Date(), 
-        //date: startDate,
-        time: moment(new Date()).format("LT"),
+        time: new Date(),
         location: location.state.trainer_location,
-        trainer: location.state.name})
+        trainer: location.state.name
+    })
 
-  
 
-    const handleUpdate = (event) => {
-        
+       
+
+
+    const handleUpdate = (event) => {    
         let name = event.target.name || event.target.element.current.name
-
         setDateForm({...dateForm, [name]: event.target.value})
     }
+
+    const onDateChange = (date) => {
+        setDateForm({...dateForm, date: date})
+    }
+
 
     const handleSub = event => {
         event.preventDefault()
@@ -57,89 +57,81 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
         })
     }
 
-
-    /////// testing 
-
-    const onDateChange = (date) => {
-        setDateForm({...dateForm, date: date})
-    }
-
-    console.log(dateForm)
-
-
   return (
       <div className="trainerForm-container" style={{padding:"2em"}}>
 
         <div className="trainer_profile_image">
-        <ReactRoundedImage  
-            image={location.state.image}
-            roundedColor="none"
-            imageWidth="none"
-            imageHeight="none"
-        />
+            <ReactRoundedImage  
+                image={location.state.image}
+                roundedColor="none"
+                imageWidth="none"
+                imageHeight="none"
+            />
         </div>
 
         <form onSubmit={handleSub} className="book_trainer-form" autoComplete="off">
-        
 
-        <label> Name:</label>
-        <input type="text" 
-         name="name"
-         placeholder="add name"
-         onChange={handleUpdate}
-         value={dateForm.name}
-        />
 
-        <label> Please Schedule Date</label>
+                <label> Name:</label>
+                    
+                    <input type="text" 
+                    name="name"
+                    placeholder="add name"
+                    onChange={handleUpdate}
+                    value={dateForm.name}
+                    />
 
-        <DatePicker
-        name="date"
-        selected={dateForm.date} 
-        onChange={onDateChange}
-        showTimeSelect
-        value={dateForm.date}
-        />
+                <label> Please Schedule Date</label>
 
-        <label> Schedule Date:</label>
-        
-        <input type="text" 
-         name="date"
-         placeholder="appointment-date"
-         onChange={handleUpdate}
-         //value={dateForm.date}
-         value={moment(dateForm.date).format("L")}
-        />
+                    <DatePicker
+                    name="date"
+                    selected={dateForm.date} 
+                    onChange={onDateChange}
+                    showTimeSelect
+                    value={dateForm.date}
+                    />
 
-        <label>Time</label>
-        <input type="text"
-         name="time"
-         placeholder="appointment-time"
-         onChange={handleUpdate}
-         value={dateForm.time}
-        />
+                <label> Schedule Date:</label>
+            
+                    <input type="text" 
+                    name="date"
+                    placeholder="appointment-date"
+                    onChange={handleUpdate}
+                    value={moment(dateForm.date).format("L")}
+                    />
 
-        <label>Location</label>
+                <label>Time</label>
+            
                 <input type="text"
-                name="name"
-                placeholder="trainer location"
+                name="time"
+                placeholder="appointment-time"
                 onChange={handleUpdate}
-                value={location.state.trainer_location}
-                
+                value={moment(dateForm.time).format("LT")}
                 />
 
-        <label> trainer</label>
+
+                <label>Location</label>
 
                     <input type="text"
                     name="name"
-                    placeholder="trainer_name"
-                    value={location.state.name}
+                    placeholder="trainer location"
                     onChange={handleUpdate}
-                     />
+                    value={location.state.trainer_location}   
+                    />
 
-        <input
-            type='submit' 
-         />
-    </form>
+            <label> trainer</label>
+
+                        <input type="text"
+                        name="name"
+                        placeholder="trainer_name"
+                        value={location.state.name}
+                        onChange={handleUpdate}
+                            />
+                <input
+                    type='submit' 
+                />
+            
+        </form>
 
         </div>
     )

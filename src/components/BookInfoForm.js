@@ -4,10 +4,11 @@ import React, { useState } from "react"
 function BookInfoForm(){
 
     const [infoForm, setInfoForm] = useState({name: "", 
-    email: "", 
-    location: "", 
-    appointmentTime: "", 
-    trainer: ""})
+            email: "", 
+            location: "", 
+            appointmentTime: "", 
+            trainer: ""
+        })
 
     const updateForm = event => {
         setInfoForm({

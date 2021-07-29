@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react'
 
 
 
-function Trainer({trainers, setTrainer}){
+function Trainer({trainers}){
 
 
     const extra = (
