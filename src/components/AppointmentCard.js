@@ -3,11 +3,15 @@ import { useHistory } from "react-router-dom"
 
 
 function AppointmentCard({appointment, name, deleteAppointment, updateAppointment}){
+
+     const trainer_id = appointment.trainer.id
+
+     console.log(trainer_id)
     
       const history = useHistory()
 
-      const {id, location, date} = appointment
 
+      const {id, location, date} = appointment
 
      const handleDeleteCard = () => {
        fetch(`http://localhost:3000/appointments/${id}`, {
@@ -20,15 +24,15 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
      // figure out how your going to update just the name of the form or anything else that needs to be updated 
 
      const handleUpdateCard = () => {
-       fetch(`http://localhost:3000/appointments/${id}`, {
-         method:'PATCH',
-         headers: {
-           'Content-Type': 'application/json'
-         }, 
-         body: JSON.stringify({})
-       })
+      //  fetch(`http://localhost:3000/appointments/${id}`, {
+      //    method:'PATCH',
+      //    headers: {
+      //      'Content-Type': 'application/json'
+      //    }, 
+      //    body: JSON.stringify({})
+      //  })
 
-       history.push('/bookdate/:id')
+       history.push(`/bookdate/${trainer_id}`)
      }
 
     return (

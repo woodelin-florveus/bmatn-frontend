@@ -7,7 +7,11 @@ import moment from 'moment'
 
 
 function BookDateTimeForm({appointments, setAppointments, currentUser}){
+
     
+    const appointmentId = appointments.map((appointment) => {
+        console.log(appointment.id)
+    })
 
     const history = useHistory()
 
@@ -53,7 +57,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
             const newAppointmentData = [...appointments, appointmentData]
 
             setAppointments(newAppointmentData)
-            history.push('/appointments')
+            history.push(`/appointments`)
         })
     }
 
