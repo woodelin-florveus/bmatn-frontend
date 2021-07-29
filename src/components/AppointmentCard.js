@@ -1,8 +1,10 @@
 import { Card, Button } from "semantic-ui-react"
+import { useHistory } from "react-router-dom"
 
 
 function AppointmentCard({appointment, name, deleteAppointment, updateAppointment}){
-
+    
+      const history = useHistory()
 
       const {id, location, date} = appointment
 
@@ -25,6 +27,8 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
          }, 
          body: JSON.stringify({})
        })
+
+       history.push('/bookdate/:id')
      }
 
     return (
@@ -41,7 +45,7 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
                         </Card.Content>
                         <Card.Content extra>
                       <Button primary onClick={handleDeleteCard}>Delete</Button>
-                      <Button secondary>Edit</Button>                        
+                      <Button secondary onClick={handleUpdateCard}>Edit</Button>                        
                 </Card.Content>
             </Card>
         </Card.Group>
