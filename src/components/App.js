@@ -1,6 +1,7 @@
 import {Switch, Route} from 'react-router-dom'
 import Homepage from './Homepage';
 import Trainer from './Trainer';
+import TrainerInfo from './TrainerInfo'
 import Appointment from './Appointment'
 import BookInfoForm from './BookInfoForm';
 import Nav from './Nav';
@@ -75,6 +76,9 @@ function App() {
           </Route>
           <Route path="/trainers">
             <Trainer trainers={trainers} setTrainers={setTrainers} />
+          </Route>
+          <Route path="/trainers/:id">
+            <TrainerInfo />
           </Route>
           <Route path="/appointments">
             <Appointment trainers={trainers} appointments={appointments} setAppointments={setAppointments} deleteAppointment={deleteAppointment} updateAppointment={updateAppointment} />

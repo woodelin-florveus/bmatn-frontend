@@ -8,10 +8,7 @@ import moment from 'moment'
 
 function BookDateTimeForm({appointments, setAppointments, currentUser}){
 
-    
-    const appointmentId = appointments.map((appointment) => {
-        console.log(appointment.id)
-    })
+   
 
     const history = useHistory()
 
