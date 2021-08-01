@@ -16,6 +16,7 @@
     "date-fns": "^2.22.1",
     "dayjs": "^1.10.5",
     "luxon": "^1.27.0",
+    "mdb-react-ui-kit": "^1.2.0",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
     "react": "^17.0.2",
