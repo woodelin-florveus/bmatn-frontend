@@ -8,7 +8,7 @@ import moment from 'moment'
 
 
 
-function BookDateEditForm({currentUser}){
+function BookDateEditForm({currentUser, setAppointments}){
 
     const {id} = useParams()
 
@@ -44,7 +44,9 @@ function BookDateEditForm({currentUser}){
 
     const [editForm, setEditForm] = useState({
         trainer_id: id,
-        date: appointmentEdit.date
+        date: appointmentEdit.date, 
+        location: appointmentEdit.location,
+        trainer: trainerEdit.name
     })
 
     console.log(editForm.date)
@@ -76,11 +78,15 @@ function BookDateEditForm({currentUser}){
             })
             .then(response => response.json())
             .then(newDateForm => {
-                //add neccesary data
+                console.log(newDateForm)
+                setAppointments(newDateForm)
             })
            
+            // history.push('/appointments')
 
     }
+    
+    console.log(editForm.location)
 
     if(!isLoaded) return <h2>....loading</h2>
 
@@ -98,7 +104,7 @@ function BookDateEditForm({currentUser}){
 
             <form onSubmit={handleUpdateForm} className="book_trainer-form" autoComplete="off">
 
-                <label> Please Schedule New Date</label>
+                <label> Please Schedule New Date </label>
 
                     <DatePicker
                     name="date"
@@ -118,9 +124,32 @@ function BookDateEditForm({currentUser}){
                     value={moment(editForm.date).format("L")}
                 />
 
+
+                <label>Location</label>
+
+                    <input type="text"
+                    name="name"
+                    placeholder="trainer location"
+                    onChange={handleUpdate}
+                    //value={location.state.trainer_location}   
+                    value={editForm.location}   
+
+                    />
+
+                <label> trainer</label>
+
+                        <input type="text"
+                        name="name"
+                        placeholder="trainer_name"
+                        value={editForm.name}
+                        onChange={handleUpdate}
+                            />
+
+
                 <input 
                 
                 type="submit"
+                value="update"
                 
                 />
 

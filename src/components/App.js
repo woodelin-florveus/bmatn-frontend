@@ -19,6 +19,8 @@ function App() {
 
   const [trainers, setTrainers] = useState([])
   const [appointments, setAppointments] = useState([])
+
+  
   
 
   useEffect(() => {
@@ -84,7 +86,7 @@ function App() {
             <Appointment trainers={trainers} appointments={appointments} setAppointments={setAppointments} deleteAppointment={deleteAppointment} updateAppointment={updateAppointment} />
           </Route>
           <Route path="/bookdate/edit/:id">
-            <BookDateEditForm currentUser={currentUser} />
+            <BookDateEditForm currentUser={currentUser} setAppointments={setAppointments} />
           </Route>
           <Route path="/bookdate/:id">
             <BookDateTimeForm appointments={appointments} setAppointments={setAppointments} currentUser={currentUser} />
