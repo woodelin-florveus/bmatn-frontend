@@ -32,7 +32,7 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
       //    body: JSON.stringify({})
       //  })
 
-       history.push(`/bookdate/${trainer_id}`)
+       history.push(`/bookdate/edit/${trainer_id}`)
      }
 
     return (

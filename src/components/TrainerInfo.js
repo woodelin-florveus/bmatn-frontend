@@ -24,7 +24,7 @@ function TrainerInfo(){
 
   if(!isLoaded) return <h2>Loading....</h2>
 
-  const {name, image, bio} = trainerInfo
+  const {name, image} = trainerInfo
 
 
     return (

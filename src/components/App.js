@@ -3,13 +3,13 @@ import Homepage from './Homepage';
 import Trainer from './Trainer';
 import TrainerInfo from './TrainerInfo'
 import Appointment from './Appointment'
-import BookInfoForm from './BookInfoForm';
 import Nav from './Nav';
 import Profile from './Profile';
 import Signup from './Signup';
 import Login from './Login'
 import { useEffect, useState } from 'react';
 import BookDateTimeForm from './BookDateTimeform';
+import BookDateEditForm from './BookDateEditForm';
 
 
 
@@ -83,8 +83,8 @@ function App() {
           <Route path="/appointments">
             <Appointment trainers={trainers} appointments={appointments} setAppointments={setAppointments} deleteAppointment={deleteAppointment} updateAppointment={updateAppointment} />
           </Route>
-          <Route path="/bookinfoform">
-            <BookInfoForm />
+          <Route path="/bookdate/edit/:id">
+            <BookDateEditForm currentUser={currentUser} />
           </Route>
           <Route path="/bookdate/:id">
             <BookDateTimeForm appointments={appointments} setAppointments={setAppointments} currentUser={currentUser} />

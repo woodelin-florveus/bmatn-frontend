@@ -12,9 +12,7 @@ code {
     monospace;
 }
 
-/* img {
-  width: 100%;
-} */
+html { overflow-y: scroll; }
 
 nav {
   text-align: center;
@@ -120,6 +118,15 @@ p.card-text{
 .ui.huge.label, .ui.huge.labels, .label{
   font-size: 100% !important;
 }
+
+/* @media (min-width: 768px){
+
+  .col-md-4 {
+    width:100%!important;
+  }
+
+} */
+
 
 
 

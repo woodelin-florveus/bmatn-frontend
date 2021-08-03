@@ -45,6 +45,7 @@ function Trainer({trainers}){
           <div className="ui four column grid" style={{padding:"4em"}}>
             
               {listTrainers}
+              
             </div>
              
 

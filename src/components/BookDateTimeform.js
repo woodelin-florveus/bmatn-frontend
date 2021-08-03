@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useLocation, useHistory } from "react-router-dom"
+import React, { useState, useEffect } from 'react';
+import {useHistory, useParams } from "react-router-dom"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactRoundedImage from "react-rounded-image"
@@ -8,23 +8,51 @@ import moment from 'moment'
 
 function BookDateTimeForm({appointments, setAppointments, currentUser}){
 
-   
+   const {id} = useParams()
 
     const history = useHistory()
+    
+    const [appointmentInfo, setAppointmentInfo] = useState('')
 
-    const location = useLocation()
+    const [trainerInfo, setTrainerInfo] = useState('')
+
+    const [isLoaded, setIsLoaded] = useState(false)
+
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/trainers/${id}`)
+        .then(response => response.json())
+        .then(trainerInfo => {
+            setTrainerInfo(trainerInfo)
+            setIsLoaded(true)
+        })
+    }, [id])
+  
+    // appointments
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/appointments/${id}`)
+        .then(response => response.json())
+        .then(appointmentInfo => {
+            setAppointmentInfo(appointmentInfo)
+            setIsLoaded(true)
+        })  
+          
+    },[id])
+
+
 
     const [dateForm, setDateForm] = useState({
-        trainer_id: location.state.id,
+        trainer_id: id,
         name: "woodelin", 
         date: new Date(), 
         time: new Date(),
-        location: location.state.trainer_location,
-        trainer: location.state.name
+        location: appointmentInfo.location,
+        trainer: trainerInfo.name
     })
 
 
-       
+    if(!isLoaded) return <h2>...loading</h2>
 
 
     const handleUpdate = (event) => {    
@@ -63,7 +91,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
 
         <div className="trainer_profile_image">
             <ReactRoundedImage  
-                image={location.state.image}
+                image={trainerInfo.image}
                 roundedColor="none"
                 imageWidth="none"
                 imageHeight="none"
@@ -117,7 +145,9 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
                     name="name"
                     placeholder="trainer location"
                     onChange={handleUpdate}
-                    value={location.state.trainer_location}   
+                    //value={location.state.trainer_location}   
+                    value={appointmentInfo.location}   
+
                     />
 
             <label> trainer</label>
@@ -125,7 +155,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
                         <input type="text"
                         name="name"
                         placeholder="trainer_name"
-                        value={location.state.name}
+                        value={trainerInfo.name}
                         onChange={handleUpdate}
                             />
                 <input
