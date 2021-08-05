@@ -51,6 +51,8 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
         trainer: trainerInfo.name
     })
 
+   console.log(dateForm.location)
+
 
     if(!isLoaded) return <h2>...loading</h2>
 

@@ -6,12 +6,11 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
 
      const trainer_id = appointment.trainer.id
 
-     console.log(trainer_id)
     
       const history = useHistory()
 
 
-      const {id, location, date} = appointment
+      const {id, date, location} = appointment
 
      const handleDeleteCard = () => {
        fetch(`http://localhost:3000/appointments/${id}`, {

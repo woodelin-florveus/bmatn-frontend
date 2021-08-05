@@ -20,8 +20,6 @@ function App() {
   const [trainers, setTrainers] = useState([])
   const [appointments, setAppointments] = useState([])
 
-  
-  
 
   useEffect(() => {
     const token = true
@@ -34,6 +32,8 @@ function App() {
       });  
     }
   },[])
+
+
 
 
   // trainers 

@@ -1,11 +1,9 @@
 import {useState, useEffect} from "react"
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactRoundedImage from "react-rounded-image"
 import moment from 'moment'
-
-
 
 
 function BookDateEditForm({currentUser, setAppointments}){
@@ -13,6 +11,8 @@ function BookDateEditForm({currentUser, setAppointments}){
     const {id} = useParams()
 
     const history = useHistory()
+
+    const location = useLocation()
 
     const [appointmentEdit, setAppointmentEdit] = useState('')
 
@@ -42,19 +42,16 @@ function BookDateEditForm({currentUser, setAppointments}){
         })
     }, [id])
 
+    const { date } = appointmentEdit
+
+    
+
     const [editForm, setEditForm] = useState({
         trainer_id: id,
-        date: appointmentEdit.date, 
-        location: appointmentEdit.location,
-        trainer: trainerEdit.name
+        date: new Date()
     })
-
-    console.log(editForm.date)
-
-    //const {name, image} = trainerEdit
-
-    //const {date} = appointmentEdit
-
+      
+    
 
     const handleUpdate = (event) => {
         let name = event.target.name || event.target.element.current.name
@@ -74,19 +71,20 @@ function BookDateEditForm({currentUser, setAppointments}){
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({trainer_id: editForm.id, date: editForm.date, user_id: currentUser.id})
+                body: JSON.stringify({trainer_id: id, date: editForm.date, user_id: currentUser.id})
+                //body: JSON.stringify(editForm)
+
             })
             .then(response => response.json())
             .then(newDateForm => {
-                console.log(newDateForm)
-                setAppointments(newDateForm)
+                setAppointments(console.log)
             })
            
-            // history.push('/appointments')
+            history.push('/appointments')
 
     }
     
-    console.log(editForm.location)
+
 
     if(!isLoaded) return <h2>....loading</h2>
 
@@ -123,28 +121,6 @@ function BookDateEditForm({currentUser, setAppointments}){
                     onChange={handleUpdate}
                     value={moment(editForm.date).format("L")}
                 />
-
-
-                <label>Location</label>
-
-                    <input type="text"
-                    name="name"
-                    placeholder="trainer location"
-                    onChange={handleUpdate}
-                    //value={location.state.trainer_location}   
-                    value={editForm.location}   
-
-                    />
-
-                <label> trainer</label>
-
-                        <input type="text"
-                        name="name"
-                        placeholder="trainer_name"
-                        value={editForm.name}
-                        onChange={handleUpdate}
-                            />
-
 
                 <input 
                 
