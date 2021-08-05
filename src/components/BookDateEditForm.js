@@ -6,7 +6,7 @@ import ReactRoundedImage from "react-rounded-image"
 import moment from 'moment'
 
 
-function BookDateEditForm({currentUser, setAppointments}){
+function BookDateEditForm({currentUser, setAppointments, updateAppointment}){
 
     const {id} = useParams()
 
@@ -74,15 +74,13 @@ function BookDateEditForm({currentUser, setAppointments}){
 
             })
             .then(response => response.json())
-            .then(newDateForm => {
-                setAppointments(newDateForm)
-            })
+            .then(updateAppointment)
            
             history.push('/appointments')
 
     }
     
-
+   
 
     if(!isLoaded) return <h2>....loading</h2>
 
