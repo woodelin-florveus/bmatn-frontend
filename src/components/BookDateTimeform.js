@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useHistory, useParams } from "react-router-dom"
+import {useHistory, useParams, useLocation } from "react-router-dom"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactRoundedImage from "react-rounded-image"
@@ -11,6 +11,8 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
    const {id} = useParams()
 
     const history = useHistory()
+
+    const location = useLocation()
     
     const [appointmentInfo, setAppointmentInfo] = useState('')
 
@@ -47,8 +49,8 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
         name: "woodelin", 
         date: new Date(), 
         time: new Date(),
-        location: appointmentInfo.location,
-        trainer: trainerInfo.name
+        location: location.state.trainer_location,
+        trainer: location.state.name
     })
 
    console.log(dateForm.location)
@@ -148,7 +150,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
                     placeholder="trainer location"
                     onChange={handleUpdate}
                     //value={location.state.trainer_location}   
-                    value={appointmentInfo.location}   
+                    value={dateForm.location}   
 
                     />
 
@@ -157,7 +159,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
                         <input type="text"
                         name="name"
                         placeholder="trainer_name"
-                        value={trainerInfo.name}
+                        value={dateForm.name}
                         onChange={handleUpdate}
                             />
                 <input

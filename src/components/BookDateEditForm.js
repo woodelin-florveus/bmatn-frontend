@@ -42,8 +42,6 @@ function BookDateEditForm({currentUser, setAppointments}){
         })
     }, [id])
 
-    const { date } = appointmentEdit
-
     
 
     const [editForm, setEditForm] = useState({
@@ -51,7 +49,7 @@ function BookDateEditForm({currentUser, setAppointments}){
         date: new Date()
     })
       
-    
+
 
     const handleUpdate = (event) => {
         let name = event.target.name || event.target.element.current.name
