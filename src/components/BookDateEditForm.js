@@ -47,6 +47,7 @@ function BookDateEditForm({currentUser, setAppointments}){
     const [editForm, setEditForm] = useState({
         trainer_id: id,
         date: new Date()
+        //user_id: currentUser.id
     })
     
 
@@ -74,7 +75,7 @@ function BookDateEditForm({currentUser, setAppointments}){
             })
             .then(response => response.json())
             .then(newDateForm => {
-                setAppointments(console.log)
+                setAppointments(newDateForm)
             })
            
             history.push('/appointments')

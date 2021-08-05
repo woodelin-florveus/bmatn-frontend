@@ -53,7 +53,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
         trainer: location.state.name
     })
 
-   console.log(dateForm.location)
+   
 
 
     if(!isLoaded) return <h2>...loading</h2>

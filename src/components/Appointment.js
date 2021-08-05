@@ -5,14 +5,14 @@ import { Grid } from "semantic-ui-react"
 import AppointmentCard from "./AppointmentCard";
 import { useEffect, useState } from "react"
 
-function Appointment({ deleteAppointment, updateAppointment}){
+function Appointment({ appointments, updateAppointment}){
 
 
 
   // testing 
 
 
-const [items, setItems] = useState()
+const [items, setItems] = useState([])
 
 
 const fetchUrl = "http://localhost:3000/appointments";
@@ -22,6 +22,13 @@ const getItems = () => fetch(fetchUrl).then(response => response.json())
 useEffect(() => {
   getItems().then(data => setItems(data))
 }, [])
+
+
+const deleteAppointment = (id) => {
+  const appointmentId = items.filter((appoint) => appoint.id !== id)
+  setItems(appointmentId)
+}
+
 
 
     let appointmentRender;
@@ -42,6 +49,7 @@ useEffect(() => {
       appointmentRender = "Loading..."
     }
 
+  
 
     return(
         <div>
