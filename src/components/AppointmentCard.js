@@ -32,7 +32,7 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
       //  })
 
        history.push({pathname: `/bookdate/edit/${trainer_id}`, 
-       state: {date: date}
+       state: {id: id, date: date}
       })
      }
 

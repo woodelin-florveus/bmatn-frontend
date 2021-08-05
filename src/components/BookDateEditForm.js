@@ -48,8 +48,7 @@ function BookDateEditForm({currentUser, setAppointments}){
         trainer_id: id,
         date: new Date()
     })
-      
-
+    
 
     const handleUpdate = (event) => {
         let name = event.target.name || event.target.element.current.name
@@ -69,7 +68,7 @@ function BookDateEditForm({currentUser, setAppointments}){
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({trainer_id: id, date: editForm.date, user_id: currentUser.id})
+                body: JSON.stringify({trainer_id: editForm.trainer_id, date: editForm.date, user_id: currentUser.id})
                 //body: JSON.stringify(editForm)
 
             })
