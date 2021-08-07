@@ -83,7 +83,7 @@ function App() {
             <Trainer trainers={trainers} setTrainers={setTrainers} />
           </Route>
           <Route path="/appointments">
-            <Appointment trainers={trainers} appointments={appointments} setAppointments={setAppointments} deleteAppointment={deleteAppointment} updateAppointment={updateAppointment} />
+            <Appointment currentUser={currentUser} />
           </Route>
           <Route path="/bookdate/edit/:id">
             <BookDateEditForm currentUser={currentUser} setAppointments={setAppointments} updateAppointment={updateAppointment} />

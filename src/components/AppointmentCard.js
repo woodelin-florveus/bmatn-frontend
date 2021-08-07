@@ -1,8 +1,12 @@
+import EditDate from "./EditDate";
 import { Card, Button } from "semantic-ui-react"
 import { useHistory } from "react-router-dom"
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import {useState} from 'react'
 
 
-function AppointmentCard({appointment, name, deleteAppointment, updateAppointment}){
+function AppointmentCard({appointment, name, deleteAppointment, updateAppointment, currentUser}){
 
      const trainer_id = appointment.trainer.id
 
@@ -17,7 +21,6 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
          method: 'DELETE'
        });
        deleteAppointment(id)
-       console.log(id)
      }
 
      // figure out how your going to update just the name of the form or anything else that needs to be updated 
@@ -36,6 +39,14 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
       })
      }
 
+     const [showDate, setShowDate] = useState(false)
+
+     const changeDate = () => {
+        setShowDate(showDate => !showDate)
+    }
+    
+    console.log(showDate)
+
     return (
 
         <Card.Group>
@@ -50,7 +61,12 @@ function AppointmentCard({appointment, name, deleteAppointment, updateAppointmen
                         </Card.Content>
                         <Card.Content extra>
                       <Button primary onClick={handleDeleteCard}>Delete</Button>
-                      <Button secondary onClick={handleUpdateCard}>Edit</Button>                        
+                      {/* <Button secondary onClick={handleUpdateCard}>Edit</Button>  
+                      onClick={chageDate}                       */}
+                      <Button secondary onClick={changeDate}>Edit Date</Button>
+                      {showDate ?                       
+                      <EditDate id={id} currentUser={currentUser} updateAppointment={updateAppointment} />
+                      : null}
                 </Card.Content>
             </Card>
         </Card.Group>

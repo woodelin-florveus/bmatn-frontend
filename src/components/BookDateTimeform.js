@@ -42,7 +42,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
           
     },[id])
 
-
+console.log(appointmentInfo)
 
     const [dateForm, setDateForm] = useState({
         trainer_id: id,

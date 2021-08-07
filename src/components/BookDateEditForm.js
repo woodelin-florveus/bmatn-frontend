@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import { useHistory, useParams, useLocation } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactRoundedImage from "react-rounded-image"
@@ -12,7 +12,7 @@ function BookDateEditForm({currentUser, setAppointments, updateAppointment}){
 
     const history = useHistory()
 
-    const location = useLocation()
+    //const location = useLocation()
 
     const [appointmentEdit, setAppointmentEdit] = useState('')
 
@@ -50,6 +50,7 @@ function BookDateEditForm({currentUser, setAppointments, updateAppointment}){
         //user_id: currentUser.id
     })
     
+    console.log(appointmentEdit)
 
     const handleUpdate = (event) => {
         let name = event.target.name || event.target.element.current.name
@@ -70,11 +71,10 @@ function BookDateEditForm({currentUser, setAppointments, updateAppointment}){
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({trainer_id: editForm.trainer_id, date: editForm.date, user_id: currentUser.id})
-                //body: JSON.stringify(editForm)
-
+                
             })
             .then(response => response.json())
-            .then(updateAppointment)
+            .then(setAppointments)
            
             history.push('/appointments')
 

@@ -1,16 +1,12 @@
-
-
-
 import { Grid } from "semantic-ui-react"
 import AppointmentCard from "./AppointmentCard";
 import { useEffect, useState } from "react"
 
-function Appointment({ appointments}){
+function Appointment({currentUser}){
 
 
 
   // testing 
-
 
 const [items, setItems] = useState([])
 
@@ -30,7 +26,7 @@ const deleteAppointment = (id) => {
 }
 
 const updateAppointment = (newAppointment) => {
-  const appointmentId = appointments.map((appoint) => appoint.id === newAppointment.id ? newAppointment : appoint)
+  const appointmentId = items.map((appoint) => appoint.id === newAppointment.id ? newAppointment : appoint)
   setItems(appointmentId)
 }
 
@@ -47,6 +43,8 @@ const updateAppointment = (newAppointment) => {
             name={appointment.trainer.name}
             deleteAppointment={deleteAppointment}
             updateAppointment={updateAppointment}
+            currentUser={currentUser}
+            
           />
         )
       })
