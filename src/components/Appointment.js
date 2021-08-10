@@ -35,12 +35,13 @@ const updateAppointment = (newAppointment) => {
     let appointmentRender;
 
     if(items) {
+
       appointmentRender = items.map((appointment) => {
+        
         return (
           <AppointmentCard 
             key={appointment.id}
             appointment={appointment}
-            name={appointment.trainer.name}
             deleteAppointment={deleteAppointment}
             updateAppointment={updateAppointment}
             currentUser={currentUser}

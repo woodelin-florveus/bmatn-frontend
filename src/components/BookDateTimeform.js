@@ -42,7 +42,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
           
     },[id])
 
-console.log(appointmentInfo)
+
 
     const [dateForm, setDateForm] = useState({
         trainer_id: id,
@@ -53,8 +53,7 @@ console.log(appointmentInfo)
         trainer: location.state.name
     })
 
-   
-
+   console.log(location.state.trainer_location)
 
     if(!isLoaded) return <h2>...loading</h2>
 
