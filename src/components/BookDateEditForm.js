@@ -6,13 +6,11 @@ import ReactRoundedImage from "react-rounded-image"
 import moment from 'moment'
 
 
-function BookDateEditForm({currentUser, setAppointments, updateAppointment}){
+function BookDateEditForm({currentUser, setAppointments}){
 
     const {id} = useParams()
 
     const history = useHistory()
-
-    //const location = useLocation()
 
     const [appointmentEdit, setAppointmentEdit] = useState('')
 
@@ -47,7 +45,6 @@ function BookDateEditForm({currentUser, setAppointments, updateAppointment}){
     const [editForm, setEditForm] = useState({
         trainer_id: id,
         date: new Date()
-        //user_id: currentUser.id
     })
     
     console.log(appointmentEdit)
@@ -80,13 +77,10 @@ function BookDateEditForm({currentUser, setAppointments, updateAppointment}){
 
     }
     
-   
-
     if(!isLoaded) return <h2>....loading</h2>
 
     return (
         <div className="trainerForm-container" style={{padding:"2em"}}>
-
             <div className="trainer_profile_image">
                 <ReactRoundedImage  
                     image={trainerEdit.image}
@@ -126,7 +120,6 @@ function BookDateEditForm({currentUser, setAppointments, updateAppointment}){
                 />
 
             </form>
-
         </div>
     )
 

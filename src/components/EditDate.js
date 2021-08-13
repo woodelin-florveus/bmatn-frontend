@@ -6,9 +6,6 @@ import moment from 'moment'
 
 function EditDate({id, currentUser, updateAppointment}){
 
-   
-
-
     const [editForm, setEditForm] = useState({
         trainer_id: id, 
         date: new Date()
@@ -64,12 +61,10 @@ function EditDate({id, currentUser, updateAppointment}){
             placeholder="appointment-date"
             value={moment(editForm.date).format("L")}
         />
-
-        
+  
         <input type="submit"
                value="update" 
         />
-
         </form>
     )
 }

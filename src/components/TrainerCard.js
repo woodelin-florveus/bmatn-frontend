@@ -8,7 +8,7 @@ function TrainerCard ({trainer_location, trainer}) {
 
   const history = useHistory()
 
-  const {id, name, image, booked, rating, bio} = trainer
+  const {id, name, image, rating, bio} = trainer
 
 
     return (
@@ -23,7 +23,6 @@ function TrainerCard ({trainer_location, trainer}) {
                   <div className="content">
                       <h3>{name}</h3>
                         <div className="meta"> 
-                          <span className="booked"> Booking Status | {booked.toString()}</span> 
                           <span className="rating"> Rating : {rating}</span> 
                         </div>
                           <div className="description">

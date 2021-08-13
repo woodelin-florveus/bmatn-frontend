@@ -14,10 +14,7 @@ function Nav({ currentUser, setCurrentUser}){
         <>
       
         <nav>
-            {/* <Link to="/">
-                Home
-            </Link> */}
-
+        
             <Link to="/home">
                 Home
             </Link>
@@ -25,8 +22,6 @@ function Nav({ currentUser, setCurrentUser}){
             {currentUser ? (
                 <>
                 <Link to="/trainers"> Trainers </Link>
-
-                {/* <Link to="/services"> Services </Link> */}
     
                 <Link to="/appointments"> Appointments </Link>
     
@@ -49,10 +44,8 @@ function Nav({ currentUser, setCurrentUser}){
             )}
         </nav>
                 
-        <img src="https://dummyimage.com/1500x400/a8a7b2/ffffff.jpg" alt="dummyImage" />
-               
-                
-            
+        <img src="images/freeweightImage.jpg" alt="dummyImage" style={{width:"100%"}} />
+                          
         </>
 
     )

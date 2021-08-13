@@ -1,15 +1,11 @@
 import EditDate from "./EditDate";
 import { Card, Button } from "semantic-ui-react"
-import { useHistory } from "react-router-dom"
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 
 
 function AppointmentCard({appointment, deleteAppointment, updateAppointment, currentUser}){
 
      //const trainer_id = appointment.trainer.id
-
-    
-      const history = useHistory()
 
 
       const {id, date, location, trainer} = appointment
@@ -29,7 +25,7 @@ function AppointmentCard({appointment, deleteAppointment, updateAppointment, cur
     }
 
 
-    
+    //console.log(trainer.name.length > 0)
 
     return (
 
@@ -46,8 +42,6 @@ function AppointmentCard({appointment, deleteAppointment, updateAppointment, cur
                         </Card.Content>
                         <Card.Content extra>
                       <Button primary onClick={handleDeleteCard}>Delete</Button>
-                      {/* <Button secondary onClick={handleUpdateCard}>Edit</Button>  
-                      onClick={chageDate}                       */}
                       <Button secondary onClick={changeDate}>Edit Date</Button>
                       {showDate ?                       
                       <EditDate id={id} currentUser={currentUser} updateAppointment={updateAppointment} />

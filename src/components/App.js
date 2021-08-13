@@ -54,18 +54,6 @@ function App() {
   }, [])
 
 
-  const deleteAppointment = (id) => {
-      const appointmentId = appointments.filter((appoint) => appoint.id !== id)
-      setAppointments(appointmentId)
-  }
-
-  const updateAppointment = (newAppointment) => {
-    const appointmentId = appointments.map((appoint) => appoint.id === newAppointment.id ? newAppointment : appoint)
-    setAppointments(appointmentId)
-  }
-
-    
-
   return (
     <div className="app">
 
@@ -86,7 +74,7 @@ function App() {
             <Appointment currentUser={currentUser} />
           </Route>
           <Route path="/bookdate/edit/:id">
-            <BookDateEditForm currentUser={currentUser} setAppointments={setAppointments} updateAppointment={updateAppointment} />
+            <BookDateEditForm currentUser={currentUser} setAppointments={setAppointments}  />
           </Route>
           <Route path="/bookdate/:id">
             <BookDateTimeForm appointments={appointments} setAppointments={setAppointments} currentUser={currentUser} />

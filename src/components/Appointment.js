@@ -57,22 +57,16 @@ const updateAppointment = (newAppointment) => {
 
     return(
         <div>
-
-          <h1 style={{textAlign: "center", padding:"1em"}}> All Appointments </h1>
-        
+          <h1 style={{textAlign: "center", padding:"1em"}}> All Appointments </h1>      
           <Grid columns={2} padded style={{padding:"1em"}}>
             <Grid.Column style={{borderRight: " 1px solid  black"}}>
                 <h3 style={{textAlign:"center"}}> Upcoming Appointments</h3>
                 {appointmentRender}
             </Grid.Column>
-
             <Grid.Column>
-                <h3 style={{textAlign: "center"}}> Previous Appointments</h3>
-                
+                <h3 style={{textAlign: "center"}}> Previous Appointments</h3>                
             </Grid.Column>
           </Grid>
-
-
         </div>
     )
 
