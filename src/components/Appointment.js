@@ -5,7 +5,6 @@ import { useEffect, useState } from "react"
 function Appointment({currentUser}){
 
 
-
   // testing 
 
 const [items, setItems] = useState([])

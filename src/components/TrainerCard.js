@@ -1,5 +1,5 @@
 
-
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function TrainerCard ({trainer_location, trainer}) {
@@ -8,7 +8,9 @@ function TrainerCard ({trainer_location, trainer}) {
 
   const history = useHistory()
 
-  const {id, name, image, rating, bio} = trainer
+  //console.log(trainer.appointments)
+
+  const {id, name, image, rating, bio, appointments} = trainer
 
 
     return (
@@ -27,10 +29,11 @@ function TrainerCard ({trainer_location, trainer}) {
                         </div>
                           <div className="description">
                             {bio}
-                          </div>
-                      <div className="location">
-                      location: {trainer_location.length > 0 ? trainer_location : "sorry not available right now"}
-                      </div>
+                          </div>   
+                        {/* <div className="location">
+                      {appointments.map(appointment => (<div key={appointment.id}> Location: {appointment.location}</div>))}
+                      </div> */}
+                      {/* fix location through backend */}
 
                   </div>
 

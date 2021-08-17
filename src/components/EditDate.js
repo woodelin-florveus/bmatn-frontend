@@ -34,7 +34,11 @@ function EditDate({id, currentUser, updateAppointment}){
             
         })
         .then(response => response.json())
-        .then(updateAppointment)
+        .then(data => {
+            updateAppointment(data)
+        })
+
+            // transfer states to edit form
 
     }
     

@@ -158,7 +158,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
                         <input type="text"
                         name="name"
                         placeholder="trainer_name"
-                        value={dateForm.name}
+                        value={dateForm.trainer}
                         onChange={handleUpdate}
                             />
                 <input
