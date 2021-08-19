@@ -71,7 +71,7 @@ function App() {
             <Trainer trainers={trainers} setTrainers={setTrainers} />
           </Route>
           <Route path="/appointments">
-            <Appointment currentUser={currentUser} />
+            <Appointment currentUser={currentUser} setAppointments={setAppointments} appointments={appointments}  />
           </Route>
           <Route path="/bookdate/edit/:id">
             <BookDateEditForm currentUser={currentUser} setAppointments={setAppointments}  />

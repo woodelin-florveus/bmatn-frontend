@@ -8,14 +8,14 @@ function Appointment({currentUser}){
   // testing 
 
 const [items, setItems] = useState([])
-
+const [isLoaded, setIsLoaded] = useState(false)
 
 const fetchUrl = "http://localhost:3000/appointments";
 
 const getItems = () => fetch(fetchUrl).then(response => response.json())
 
 useEffect(() => {
-  getItems().then(data => setItems(data))
+  getItems().then(data => setItems(data), setIsLoaded(true))
 }, [])
 
 
@@ -31,6 +31,7 @@ const updateAppointment = (newAppointment) => {
 
 
 
+
     let appointmentRender;
 
     if(items) {
@@ -43,6 +44,7 @@ const updateAppointment = (newAppointment) => {
             appointment={appointment}
             deleteAppointment={deleteAppointment}
             updateAppointment={updateAppointment}
+            setItems={setItems}
             currentUser={currentUser}
             
           />

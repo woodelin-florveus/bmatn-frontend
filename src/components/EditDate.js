@@ -4,12 +4,21 @@ import { useState } from "react"
 import moment from 'moment'
 
 
-function EditDate({id, currentUser, updateAppointment}){
+function EditDate({id, currentUser, updateAppointment, setItems, appointment}){
+
+
+    
+   
 
     const [editForm, setEditForm] = useState({
         trainer_id: id, 
-        date: new Date()
+        date: new Date(),
+        user_id: currentUser.id
     })
+
+    console.log(editForm)
+
+    //console.log(editForm)
 
     const handleUpdate = (event) => {
         let name = event.target.name || event.target.element.current.name
@@ -23,6 +32,8 @@ function EditDate({id, currentUser, updateAppointment}){
 
     const handleUpdateForm = (event) => {
 
+       
+
         event.preventDefault()
 
         fetch(`http://localhost:3000/appointments/${id}`,{
@@ -30,13 +41,14 @@ function EditDate({id, currentUser, updateAppointment}){
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({trainer_id: editForm.trainer_id, date: editForm.date, user_id: currentUser.id})
+            //body: JSON.stringify({trainer_id: editForm.trainer_id, date: editForm.date, user_id: currentUser.id})
+            body: JSON.stringify(editForm)
             
         })
         .then(response => response.json())
-        .then(data => {
-            updateAppointment(data)
-        })
+       .then(data => {
+           updateAppointment(data)
+       })
 
             // transfer states to edit form
 

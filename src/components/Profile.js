@@ -4,6 +4,7 @@ function Profile({ currentUser, setCurrentUser }){
 
     // left as name for now add bio to migrations, seed, and serializers
 
+  
 
     const [formData, setFormData] = useState({ 
         profile_image: currentUser.profile_image, 
