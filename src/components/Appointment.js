@@ -32,6 +32,8 @@ const updateAppointment = (newAppointment) => {
 
 
 
+
+
     let appointmentRender;
 
     if(items) {
