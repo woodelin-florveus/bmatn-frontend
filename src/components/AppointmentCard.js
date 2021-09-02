@@ -5,10 +5,10 @@ import {useState} from 'react'
 
 function AppointmentCard({appointment, deleteAppointment, updateAppointment, currentUser, setItems}){
 
-    console.log(appointment.trainer_id)
 
 
-      const {id, date, location} = appointment
+
+      const {id, name, appointments} = appointment
 
         
 
@@ -35,23 +35,23 @@ function AppointmentCard({appointment, deleteAppointment, updateAppointment, cur
             <Card>
                 <Card.Content>
                       {/* <Card.Header>{appointment.trainer.name.hasOwnProperty("name") ? appointment.trainer.name : "sorry not available"}</Card.Header> */}
-                      <Card.Header>{appointment.trainer_id}</Card.Header>
-                          {/* <Card.Meta>{appointments && appointments.map((appointment) => {
+                      <Card.Header>{name}</Card.Header>
+                          <Card.Meta>{appointments && appointments.map((appointment) => {
                             return (
                               <div key={appointment.id}>{appointment.date}</div>
                             )
-                          })}</Card.Meta> */}
-                          <Card.Meta>{date}</Card.Meta>
+                          })}</Card.Meta>
+                          {/* <Card.Meta>{date}</Card.Meta> */}
                           <Card.Meta>Time: 8:00AM</Card.Meta>
-                          {/* <Card.Description>
+                          <Card.Description>
                             {appointments && appointments.map((appointment) => {
                               return (
                                 <div key={appointment.id}>{appointment.location}</div>
                               )
                             })}
-                          </Card.Description> */}
+                          </Card.Description>
                             <Card.Description>
-                            {location}
+                            {/* {location} */}
                           </Card.Description>
                         </Card.Content>
                         <Card.Content extra>

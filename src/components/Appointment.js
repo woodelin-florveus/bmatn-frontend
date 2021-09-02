@@ -10,13 +10,14 @@ function Appointment({currentUser}){
 const [items, setItems] = useState([])
 const [isLoaded, setIsLoaded] = useState(false)
 
-const fetchUrl = "http://localhost:3000/appointments";
+const fetchUrl = "http://localhost:3000/trainers";
 
 const getItems = () => fetch(fetchUrl).then(response => response.json())
 
 useEffect(() => {
   getItems().then(data => setItems(data), setIsLoaded(true))
 }, [])
+
 
 
 const deleteAppointment = (id) => {
@@ -26,7 +27,8 @@ const deleteAppointment = (id) => {
 
 const updateAppointment = (newAppointment) => {
   const appointmentId = items.map((appoint) => appoint.id === newAppointment.id ? newAppointment : appoint)
-  setItems(appointmentId)
+
+   setItems([...appointmentId, newAppointment])
 }
 
 

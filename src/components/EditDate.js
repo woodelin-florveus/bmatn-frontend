@@ -11,7 +11,7 @@ function EditDate({id, currentUser, updateAppointment, setItems, appointment}){
    
 
     const [editForm, setEditForm] = useState({
-        trainer_id: id, 
+        id: id, 
         date: new Date(),
         user_id: currentUser.id
     })
@@ -36,7 +36,7 @@ function EditDate({id, currentUser, updateAppointment, setItems, appointment}){
 
         event.preventDefault()
 
-        fetch(`http://localhost:3000/appointments/${id}`,{
+        fetch(`http://localhost:3000/trainers/${id}`,{
             method: 'PATCH', 
             headers: {
                 'Content-Type': 'application/json',
