@@ -10,7 +10,7 @@ function Appointment({currentUser}){
 const [items, setItems] = useState([])
 const [isLoaded, setIsLoaded] = useState(false)
 
-const fetchUrl = "http://localhost:3000/trainers";
+const fetchUrl = "http://localhost:3000/appointments";
 
 const getItems = () => fetch(fetchUrl).then(response => response.json())
 
@@ -28,7 +28,7 @@ const deleteAppointment = (id) => {
 const updateAppointment = (newAppointment) => {
   const appointmentId = items.map((appoint) => appoint.id === newAppointment.id ? newAppointment : appoint)
 
-   setItems([...appointmentId, newAppointment])
+   setItems(appointmentId)
 }
 
 
@@ -41,7 +41,6 @@ const updateAppointment = (newAppointment) => {
     if(items) {
 
       appointmentRender = items.map((appointment) => {
-        
         return (
           <AppointmentCard 
             key={appointment.id}

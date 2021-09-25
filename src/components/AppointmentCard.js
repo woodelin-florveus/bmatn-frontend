@@ -6,11 +6,10 @@ import {useState} from 'react'
 function AppointmentCard({appointment, deleteAppointment, updateAppointment, currentUser, setItems}){
 
 
+   
+      
 
-
-      const {id, name, appointments} = appointment
-
-        
+      const {id, trainer_name, date, trainer_location} = appointment
 
 
      const handleDeleteCard = () => {
@@ -35,21 +34,10 @@ function AppointmentCard({appointment, deleteAppointment, updateAppointment, cur
             <Card>
                 <Card.Content>
                       {/* <Card.Header>{appointment.trainer.name.hasOwnProperty("name") ? appointment.trainer.name : "sorry not available"}</Card.Header> */}
-                      <Card.Header>{name}</Card.Header>
-                          <Card.Meta>{appointments && appointments.map((appointment) => {
-                            return (
-                              <div key={appointment.id}>{appointment.date}</div>
-                            )
-                          })}</Card.Meta>
-                          {/* <Card.Meta>{date}</Card.Meta> */}
+                      <Card.Header>{trainer_name}</Card.Header>
+                          <Card.Meta>{date}</Card.Meta>
                           <Card.Meta>Time: 8:00AM</Card.Meta>
-                          <Card.Description>
-                            {appointments && appointments.map((appointment) => {
-                              return (
-                                <div key={appointment.id}>{appointment.location}</div>
-                              )
-                            })}
-                          </Card.Description>
+                          <Card.Description key={appointment.trainer_id}>{trainer_location}</Card.Description>
                             <Card.Description>
                             {/* {location} */}
                           </Card.Description>

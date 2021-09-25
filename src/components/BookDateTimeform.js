@@ -48,12 +48,12 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
         trainer_id: id,
         name: "woodelin", 
         date: new Date(), 
-        time: new Date(),
         location: location.state.trainer_location,
-        trainer: location.state.name
+        trainer_name: location.state.name
     })
 
-   console.log(location.state.trainer_location)
+    console.log(dateForm)
+    
 
     if(!isLoaded) return <h2>...loading</h2>
 
@@ -76,7 +76,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
             headers: {
                 'Content-Type': 'application/json',
             }, 
-            body: JSON.stringify({trainer_id: dateForm.trainer_id, date: dateForm.date, location: dateForm.location, trainer: dateForm.trainer, user_id: currentUser.id})
+            body: JSON.stringify({trainer_id: dateForm.trainer_id, date: dateForm.date, location: dateForm.location, trainer_name: dateForm.trainer_name, user_id: currentUser.id})
 
         })
         .then(response => response.json())
@@ -158,7 +158,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
                         <input type="text"
                         name="name"
                         placeholder="trainer_name"
-                        value={dateForm.trainer}
+                        value={dateForm.trainer_name}
                         onChange={handleUpdate}
                             />
                 <input

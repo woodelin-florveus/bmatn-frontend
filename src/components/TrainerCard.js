@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function TrainerCard ({trainer_location, trainer}) {
+function TrainerCard ({trainer}) {
 
 
 
@@ -10,7 +10,10 @@ function TrainerCard ({trainer_location, trainer}) {
 
   //console.log(trainer.appointments)
 
-  const {id, name, image, rating, bio, appointments} = trainer
+  const {id, name, image, rating, bio, location, appointments} = trainer
+
+
+      console.log(name)
 
 
     return (
@@ -44,12 +47,12 @@ function TrainerCard ({trainer_location, trainer}) {
 
                         <div className="ui basic green button" onClick={() => history.push({
                         pathname: `/bookdate/${id}`,
-                        state: { id: id, name: name, image: image, trainer_location: trainer_location.toString()}
+                        state: { id: id, name: name, image: image, trainer_location: location}
                         })}>Book</div>
 
                     <div className="ui basic red button" onClick={() => history.push({
                       pathname: `/trainers/${id}`,
-                      state: { id: id, name: name, image: image, trainer_location: trainer_location.toString()}
+                      state: { id: id, trainer_name: name, image: image, trainer_location: location}
                     })}>More Info</div>
                     </div>            
                   </div>

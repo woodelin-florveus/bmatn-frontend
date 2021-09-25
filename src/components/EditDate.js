@@ -4,9 +4,9 @@ import { useState } from "react"
 import moment from 'moment'
 
 
-function EditDate({id, currentUser, updateAppointment, setItems, appointment}){
+function EditDate({id, currentUser, updateAppointment}){
 
-
+// might have to use trainer id
     
    
 
@@ -36,7 +36,7 @@ function EditDate({id, currentUser, updateAppointment, setItems, appointment}){
 
         event.preventDefault()
 
-        fetch(`http://localhost:3000/trainers/${id}`,{
+        fetch(`http://localhost:3000/appointments/${id}`,{
             method: 'PATCH', 
             headers: {
                 'Content-Type': 'application/json',
