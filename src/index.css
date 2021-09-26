@@ -181,18 +181,7 @@ p.card-text{
   grid-auto-flow: dense;
 }
 
-.horizontal {
-	grid-column: span 2;
-}
 
-.vertical {
-	grid-row: span 2;
-}
-
-.big {
-	grid-column: span 2;
-	grid-row: span 2;
-}
 
 @media screen and (min-width: 1024px){
 	.main_wrapper{
@@ -211,16 +200,21 @@ p.card-text{
 
 .services {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
 }
 
-.service {
+.service_item {
   width: 31%;
 }
 
-
-
-.service + .service {
-  margin-left: 0;
-  margin-right: 0;
+.service_item {
+  text-align: center;
 }
+
+.service__subtitle {
+  font-size: 2em;
+}
+
+
+
