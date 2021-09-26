@@ -121,11 +121,9 @@ p.card-text{
 }
 
 /* @media (min-width: 768px){
-
   .col-md-4 {
     width:100%!important;
   }
-
 } */
 
 /* edit form */
@@ -212,9 +210,11 @@ p.card-text{
   text-align: center;
 }
 
+.service_item p {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
 .service__subtitle {
   font-size: 2em;
 }
-
-
-

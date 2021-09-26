@@ -6,9 +6,9 @@ import React from "react"
 function Homepage(){
     return (
         
-	
+		<>
 		<section className="intro">
-			<h2 className="section__title section__title--services"> Services We Offer</h2>
+			<h1 className="section__title section__title--services"> Services We Offer</h1>
 				<div className="services">
 					
 					<div className="service_item">
@@ -34,7 +34,24 @@ function Homepage(){
 
 				</div>
 		</section>
-	
+
+		<section className="mission__section">
+
+		<h1 className="section__title section__title--services"> Our Mission</h1>
+
+			<div className="mission__container">
+				<div className="image__content">
+					flex column 1
+				</div>
+
+				<div className="text__content">
+					flex column 2
+				</div>
+			</div>
+
+		</section>
+
+		</>
     )
 }
 
