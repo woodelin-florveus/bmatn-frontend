@@ -34,10 +34,6 @@ function Homepage(){
 
 				</div>
 		</section>
-
-		<section className="Goal__section">
-			{/* add two section */}
-		</section>
 		</>
     )
 }

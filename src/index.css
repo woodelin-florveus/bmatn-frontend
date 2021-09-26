@@ -211,11 +211,16 @@ p.card-text{
 
 .services {
   display: flex;
-  flex-wrap:wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .service {
-  flex: 0 32%;
-  
+  width: 31%;
+}
+
+
+
+.service + .service {
+  margin-left: 0;
+  margin-right: 0;
 }
