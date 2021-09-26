@@ -1,6 +1,5 @@
 import React from "react"
-//import PackageCards from "./PackageCards"
-
+import { Grid, Image } from 'semantic-ui-react'
 
 
 
@@ -8,25 +7,36 @@ function Homepage(){
     return (
         
 		<>
-		{/* <h1 style={{textAlign:"center", padding:"10px", fontSize:"5em"}}>Gallery of Hardwork</h1>
-        <div className="main_container" style={{margin:"10px"}}>    
-        <div className="horizontal"><img src="images/image1.jpg" alt="dummy_image"/></div>
-		<div className="vertical"><img  src="images/image2.jpg" alt="dummy_image"/></div>
-		<div><img src="images/image9.jpg" alt="dummy_image" /></div>
-		<div className="big"><img   src="images/image4.jpg" alt="dummy_image"/></div>
-		<div className="vertical"><img  src="images/image5.jpg" alt="dummy_image"/></div>
-		<div className="horizontal"><img  src="images/image6.jpg" alt="dummy_image"/></div>
-		<div><img src="images/image7.jpg" alt="dummy_image"/></div>
-		<div className="horizontal"><img  src="images/image8.jpg" alt="dummy_image"/></div>
-		<div><img src="images/image9.jpg" alt="dummy_image"/></div>
-		<div><img src="images/image2.jpg" alt="dummy_image"/></div>
-        </div>  */}
 		<section className="intro">
 			<h2 className="section__title section__title--services"> Services We Offer</h2>
 				<div className="services">
+					
 					<div className="service">
+						<img src="https://dummyimage.com/300x300/000/fff" alt="service__image" className="service__image" />
+						<h3 className="service__subtitle">Weight Lifting Session</h3>
+						<p>In publishing and graphic design, Lorem ipsum is a placeholder 
+						text commonly used to demonstrate the visual form of a document</p>
 					</div>
+
+					<div className="service">
+						<img src="https://dummyimage.com/300x300/000/fff" alt="service__image" className="service__image" />
+						<h3 className="service__subtitle">Weight Lifting Session</h3>
+						<p>In publishing and graphic design, Lorem ipsum is a placeholder 
+						text commonly used to demonstrate the visual form of a document</p>
+					</div>
+
+					<div className="service">
+						<img src="https://dummyimage.com/300x300/000/fff" alt="service__image" className="service__image" />
+						<h3 className="service__subtitle">Weight Lifting Session</h3>
+						<p>In publishing and graphic design, Lorem ipsum is a placeholder 
+						text commonly used to demonstrate the visual form of a document</p>
+					</div>
+
 				</div>
+		</section>
+
+		<section className="Goal__section">
+			{/* add two section */}
 		</section>
 		</>
     )

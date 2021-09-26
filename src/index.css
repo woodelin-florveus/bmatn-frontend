@@ -208,3 +208,14 @@ p.card-text{
   background-image: linear-gradient(76deg, #ededee 0%, #ffffff 100%);
   
 }
+
+.services {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+
+.service {
+  flex: 0 32%;
+  
+}
