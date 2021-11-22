@@ -10,7 +10,7 @@ function Appointment({currentUser}){
 const [items, setItems] = useState([])
 const [isLoaded, setIsLoaded] = useState(false)
 
-const fetchUrl = "http://localhost:3000/appointments";
+const fetchUrl = "https://bmatn-app-api.herokuapp.com/appointments";
 
 const getItems = () => fetch(fetchUrl).then(response => response.json())
 

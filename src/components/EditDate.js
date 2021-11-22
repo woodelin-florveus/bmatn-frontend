@@ -36,7 +36,7 @@ function EditDate({id, currentUser, updateAppointment}){
 
         event.preventDefault()
 
-        fetch(`http://localhost:3000/appointments/${id}`,{
+        fetch(`https://bmatn-app-api.herokuapp.com/appointments/${id}`,{
             method: 'PATCH', 
             headers: {
                 'Content-Type': 'application/json',

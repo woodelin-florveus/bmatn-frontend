@@ -14,7 +14,7 @@ function TrainerInfo(){
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    fetch(`http://localhost:3000/trainers/${id}`)
+    fetch(`https://bmatn-app-api.herokuapp.com/trainers/${id}`)
     .then(response => response.json())
     .then((trainerInfo) => {
         setTrainerInfo(trainerInfo)

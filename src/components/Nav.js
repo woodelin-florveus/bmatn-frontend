@@ -14,18 +14,12 @@ function Nav({ currentUser, setCurrentUser}){
         <>
       
         <nav>
-        
-            <Link to="/home">
-                Home
-            </Link>
             
             {currentUser ? (
                 <>
                 <Link to="/trainers"> Trainers </Link>
     
-                <Link to="/appointments"> Appointments </Link>
-    
-                <Link to="/about"> About </Link>    
+                <Link to="/appointments"> Appointments </Link> 
 
                 <Link to="/profile"> Profile </Link>
 

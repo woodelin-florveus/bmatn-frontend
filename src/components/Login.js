@@ -22,7 +22,7 @@ function Login({ setCurrentUser }){
 
             // Reset the user in state
 
-            fetch("http://localhost:3000/login", {
+            fetch("https://bmatn-app-api.herokuapp.com/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

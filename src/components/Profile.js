@@ -24,7 +24,7 @@ function Profile({ currentUser, setCurrentUser }){
         //request => PATCH/myself => {image / bio}
         // response => update user in state
         
-        fetch("http://localhost:3000/myself", {
+        fetch("https://bmatn-app-api.herokuapp.com/myself", {
             method: "PATCH", 
             headers: {
                 "Content-Type": "application/json"

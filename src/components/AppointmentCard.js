@@ -13,7 +13,7 @@ function AppointmentCard({appointment, deleteAppointment, updateAppointment, cur
 
 
      const handleDeleteCard = () => {
-       fetch(`http://localhost:3000/appointments/${id}`, {
+       fetch(`https://bmatn-app-api.herokuapp.com/appointments/${id}`, {
          method: 'DELETE'
        });
        deleteAppointment(id)

@@ -21,7 +21,7 @@ function Signup({ setCurrentUser }){
     function handleSubmit(event){
         event.preventDefault();
 
-        fetch("http://localhost:3000/signup", {
+        fetch("https://bmatn-app-api.herokuapp.com/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

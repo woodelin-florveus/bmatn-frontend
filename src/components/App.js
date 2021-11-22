@@ -1,5 +1,5 @@
 import {Switch, Route} from 'react-router-dom'
-import Homepage from './Homepage';
+
 import Trainer from './Trainer';
 import TrainerInfo from './TrainerInfo'
 import Appointment from './Appointment'
@@ -25,7 +25,7 @@ function App() {
     const token = true
 
     if(token){
-      fetch("http://localhost:3000/myself")
+      fetch("https://bmatn-app-api.herokuapp.com/myself")
       .then(response => response.json())
       .then(user => {
         setCurrentUser(user)
@@ -39,7 +39,7 @@ function App() {
   // trainers 
 
   useEffect(() => {
-      fetch('http://localhost:3000/trainers')
+      fetch('https://bmatn-app-api.herokuapp.com/trainers')
       .then(response => response.json())
       .then(setTrainers)
   },[])
@@ -48,7 +48,7 @@ function App() {
   // appointments
 
   useEffect(() => {
-    fetch('http://localhost:3000/appointments')
+    fetch('https://bmatn-app-api.herokuapp.com/appointments')
     .then(response => response.json())
     .then(setAppointments)
   }, [])
@@ -61,9 +61,6 @@ function App() {
       {/* {currentUser ? <h1>Welcome, {currentUser.name}</h1> : <h1>Please Login or sign up</h1>}   */}
       
       <Switch>
-          <Route path="/home">
-            <Homepage />
-          </Route>
           <Route path="/trainers/:id">
             <TrainerInfo trainers={trainers} />
           </Route>

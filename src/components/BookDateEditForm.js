@@ -21,7 +21,7 @@ function BookDateEditForm({currentUser, setAppointments}){
     // appointments
 
     useEffect(() => {
-        fetch(`http://localhost:3000/appointments/${id}`)
+        fetch(`https://bmatn-app-api.herokuapp.com/appointments/${id}`)
         .then(response => response.json())
         .then(appointmentEdit => {
             setAppointmentEdit(appointmentEdit)
@@ -32,7 +32,7 @@ function BookDateEditForm({currentUser, setAppointments}){
     // trainer
 
     useEffect(() => {
-        fetch(`http://localhost:3000/trainers/${id}`)
+        fetch(`https://bmatn-app-api.herokuapp.com/trainers/${id}`)
         .then(response => response.json())
         .then(trainerEdit => {
             setTrainerEdit(trainerEdit)
@@ -62,7 +62,7 @@ function BookDateEditForm({currentUser, setAppointments}){
 
         event.preventDefault()
 
-            fetch(`http://localhost:3000/appointments/${id}`,{
+            fetch(`https://bmatn-app-api.herokuapp.com/appointments/${id}`,{
                 method: 'PATCH', 
                 headers: {
                     'Content-Type': 'application/json',

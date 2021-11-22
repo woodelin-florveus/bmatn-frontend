@@ -22,7 +22,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/trainers/${id}`)
+        fetch(`https://bmatn-app-api.herokuapp.com/trainers/${id}`)
         .then(response => response.json())
         .then(trainerInfo => {
             setTrainerInfo(trainerInfo)
@@ -33,7 +33,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
     // appointments
 
     useEffect(() => {
-        fetch(`http://localhost:3000/appointments/${id}`)
+        fetch(`https://bmatn-app-api.herokuapp.com/appointments/${id}`)
         .then(response => response.json())
         .then(appointmentInfo => {
             setAppointmentInfo(appointmentInfo)
@@ -71,7 +71,7 @@ function BookDateTimeForm({appointments, setAppointments, currentUser}){
     const handleSub = event => {
         event.preventDefault()
         
-        fetch('http://localhost:3000/appointments', {
+        fetch('https://bmatn-app-api.herokuapp.com/appointments', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
